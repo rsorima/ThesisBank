@@ -43,11 +43,11 @@
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
 
-            <li>
+            <!-- <li>
                 <a href="student-calendar.php">
                     <span class="fa fa-calendar"></span>
                 </a>
-            </li>
+            </li> -->
                 <li class="dropdown user user-menu">
                     <!-- Menu Toggle Button -->
                     

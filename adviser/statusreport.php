@@ -88,7 +88,7 @@
                                                     $Aname = "No Adviser Yet";
                                                 }
                                                echo '<tr>';  
-                                               echo    '<td>'.$row["group_name"];
+                                               echo    '<td> <b>'.$row["group_name"].'</b>';
                                                     $gmembers ="SELECT g.group_id, g.user_id, u.lastname FROM group_members g left join users u on g.user_id = u.id WHERE group_id = ".$row['group_id']."";
         //                                            echo $query;
                                                     $gresult = mysqli_query($con, $gmembers);
