@@ -98,7 +98,8 @@
                                                     <td>'.$row["group_name"].'</td>  
                                                     <td>'.$Aname.'</td>  
                                                     <td>'.$row["totalStudents"].'</td>  
-                                                    <td><button class="btn btn-xs btn-primary btn-table" id="btnEditGroup" group_id='.$row['group_id'].' groupname="'.$row['group_name'].'" data-toggle="modal" style="width: 65px;">Edit Group</button><button class="btn btn-xs btn-danger btn-table" id="btnDeleteGroup" group_id='.$row['group_id'].' style="width: 65px;">Delete</button></td>  
+                                                    <td><button class="btn btn-xs btn-primary btn-table" id="btnEditGroup" group_id='.$row['group_id'].' groupname="'.$row['group_name'].'" data-toggle="modal" style="width: 65px;">Edit Group</button>
+                                                        <button class="btn btn-xs btn-danger btn-table" id="btnDeleteGroup" group_id='.$row['group_id'].' style="width: 65px;">Delete</button></td>  
                                                </tr>  
                                                ';  
                                             }  
@@ -146,7 +147,6 @@
             </div>
         </div>
 
-            
         <!-- EDIT GROUP MODAL -->
             
         <div class="modal fade" id="modalEditGroups" role="dialog">

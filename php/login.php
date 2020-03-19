@@ -41,7 +41,8 @@
 				$_SESSION['uid'] = $row['id'];
                 $_SESSION['fname'] = $row['firstname'];
 				$_SESSION['lname'] = $row['lastname'];
-                $_SESSION['sem'] = $row['sem'];
+				$_SESSION['sem'] = $row['sem'];
+				$_SESSION['course'] = $row['program'];
 				//$_SESSION['contact'] = $row['contact'];
 				//$_SESSION['uname'] = $row['username'];
 				//$_SESSION['pword'] = $row['password'];

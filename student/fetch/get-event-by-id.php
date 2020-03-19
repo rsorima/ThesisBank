@@ -4,7 +4,6 @@
 	$get_event = "SELECT id, title, Description, start,end from events where id='$id'";
 	$result = mysqli_query($con, $get_event);
 
-
 	if(mysqli_num_rows($result) > 0){
 		$i = 0;
 		while($row = $result -> fetch_assoc()){

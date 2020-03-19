@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 12, 2020 at 05:21 AM
+-- Generation Time: Mar 19, 2020 at 04:20 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -58,23 +58,25 @@ CREATE TABLE `events` (
   `course` int(11) NOT NULL,
   `Description` varchar(255) NOT NULL,
   `start` datetime NOT NULL,
-  `end` datetime NOT NULL
+  `end` datetime NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `sem`, `event_type`, `course`, `Description`, `start`, `end`) VALUES
-(1, 'Final Defense', 0, 0, 0, 'Final Defense for IT Special Project (THESIS)', '2019-11-04 09:00:00', '2019-11-05 19:00:00'),
-(10, 'Deliverables Deadline', 0, 0, 0, 'Deadline for Deliverables', '2019-10-29 06:00:00', '2019-10-29 18:00:00'),
-(13, 'redefense', 0, 0, 0, 'it project', '2019-11-22 13:00:00', '2019-11-22 17:00:00'),
-(14, 'deliverables', 0, 0, 0, 'passing of status report', '2019-11-22 08:00:00', '2019-11-22 00:59:00'),
-(15, 'Week 1', 1, 2, 2, 'progress 1', '2020-03-12 18:40:00', '2020-03-18 18:40:00'),
-(16, 'final defense', 1, 2, 2, 'final defense', '2020-03-11 13:00:00', '2020-03-12 13:00:00'),
-(18, 'char3', 1, 2, 2, 'char2', '2020-03-11 13:00:00', '2020-03-14 13:00:00'),
-(20, 'week3', 1, 2, 2, 'week3', '2020-03-23 13:00:00', '2020-03-25 13:00:00'),
-(21, 'defense1', 1, 1, 2, 'defense1', '2020-03-20 13:00:00', '2020-03-21 13:00:00');
+INSERT INTO `events` (`id`, `title`, `sem`, `event_type`, `course`, `Description`, `start`, `end`, `user_id`) VALUES
+(1, 'Final Defense', 0, 0, 0, 'Final Defense for IT Special Project (THESIS)', '2019-11-04 09:00:00', '2019-11-05 19:00:00', 1),
+(10, 'Deliverables Deadline', 0, 0, 0, 'Deadline for Deliverables', '2019-10-29 06:00:00', '2019-10-29 18:00:00', 1),
+(13, 'redefense', 0, 0, 0, 'it project', '2019-11-22 13:00:00', '2019-11-22 17:00:00', 0),
+(14, 'deliverables', 0, 0, 0, 'passing of status report', '2019-11-22 08:00:00', '2019-11-22 00:59:00', 0),
+(15, 'Week 1', 1, 2, 2, 'progress 1', '2020-03-12 18:40:00', '2020-03-18 18:40:00', 4),
+(16, 'final defense', 1, 2, 2, 'final defense', '2020-03-11 13:00:00', '2020-03-12 13:00:00', 5),
+(18, 'char3', 1, 2, 2, 'Progress 2', '2020-03-11 13:00:00', '2020-03-14 13:00:00', 4),
+(20, 'week3', 1, 2, 2, 'week3', '2020-03-23 13:00:00', '2020-03-25 13:00:00', 4),
+(21, 'defense1', 1, 1, 2, 'defense1', '2020-03-20 13:00:00', '2020-03-21 13:00:00', 5),
+(22, 'mock defense', 1, 1, 2, 'mock defense', '2020-03-13 13:30:00', '2020-03-13 18:00:00', 17);
 
 -- --------------------------------------------------------
 
@@ -96,7 +98,8 @@ CREATE TABLE `groups` (
 
 INSERT INTO `groups` (`id`, `adviser`, `sem`, `program`, `name`) VALUES
 (20, 4, 1, 2, 'group 1'),
-(23, 17, 1, 2, 'group 2');
+(23, 17, 1, 2, 'group 2'),
+(24, 2, 1, 6, 'Group 1 HRM');
 
 -- --------------------------------------------------------
 
@@ -116,7 +119,7 @@ CREATE TABLE `group_members` (
 
 INSERT INTO `group_members` (`id`, `group_id`, `user_id`) VALUES
 (8, 20, 13),
-(12, 20, 19);
+(12, 23, 19);
 
 -- --------------------------------------------------------
 
@@ -180,7 +183,8 @@ CREATE TABLE `report` (
 INSERT INTO `report` (`id`, `group_id`, `event_id`, `sem_id`, `report_type`, `report_filename`, `status`, `date_created`) VALUES
 (14, 20, 16, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', 3, '2020-03-11 15:58:32'),
 (15, 20, 15, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', 2, '2020-03-12 10:51:13'),
-(16, 20, 20, 1, 2, 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', 2, '2020-03-12 10:57:04');
+(16, 20, 20, 1, 2, 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', 2, '2020-03-12 10:57:04'),
+(17, 20, 20, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', 1, '2020-03-12 18:22:44');
 
 -- --------------------------------------------------------
 
@@ -288,7 +292,8 @@ CREATE TABLE `thesis_table` (
 --
 
 INSERT INTO `thesis_table` (`id`, `course`, `thesis_name`, `thesis_pdf_file`, `thesis_year`, `date_created`) VALUES
-(2, '2', 'IOT', 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', '2010', '2020-03-11');
+(2, '2', 'IOT', 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', '2010', '2020-03-11'),
+(3, '1', 'book 2', 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', '2010', '2020-03-12');
 
 -- --------------------------------------------------------
 
@@ -317,12 +322,13 @@ INSERT INTO `users` (`id`, `role`, `program`, `sem`, `firstname`, `lastname`, `u
 (1, 1, 1, 0, 'admin', 'admin', 'admin', 'admin', 0, '2020-03-08 11:47:02'),
 (2, 4, 1, 0, 'no adviser', 'no adviser', 'no adviser', 'no adviser', 0, '2020-03-11 10:01:02'),
 (4, 4, 2, 1, 'adviser', 'adviser', 'adviser', 'adviser', 0, '2020-03-10 21:09:56'),
-(5, 3, 2, 1, 'coordinator', 'coordinator', 'coordinator', 'coordinator', 1, '2020-03-10 21:28:37'),
+(5, 3, 2, 1, 'coordinator', 'coordinator', 'coordinator', 'coordinator', 0, '2020-03-10 21:28:37'),
 (12, 6, 1, 1, 'librarian', 'librarian', 'librarian', 'librarian', 0, '2020-03-10 23:45:38'),
 (13, 5, 2, 1, 'kent', 'mozo', 'kent', 'mozo', 0, '2020-03-10 20:15:50'),
 (17, 4, 2, 1, 'adviser2', 'adviser2', 'adviser2', 'adviser2', 0, '2020-03-11 10:50:49'),
 (18, 2, 2, 1, 'programhead', 'programhead', 'programhead', 'programhead', 0, '2020-03-11 16:07:03'),
-(19, 5, 2, 1, 'reno', 'sorima', 'reno', 'sorima', 0, '2020-03-12 10:19:58');
+(19, 5, 2, 1, 'reno', 'sorima', 'reno', 'sorima', 0, '2020-03-12 10:19:58'),
+(20, 3, 6, 1, 'HRM coordinator', 'HRM coordinator', 'HRM coordinator', 'coordinator', 1, '2020-03-19 00:19:22');
 
 -- --------------------------------------------------------
 
@@ -462,13 +468,13 @@ ALTER TABLE `calendar_events`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `groups`
 --
 ALTER TABLE `groups`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `group_members`
@@ -492,7 +498,7 @@ ALTER TABLE `progress_schedule`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `reportstatus`
@@ -522,13 +528,13 @@ ALTER TABLE `sem_type`
 -- AUTO_INCREMENT for table `thesis_table`
 --
 ALTER TABLE `thesis_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `user_roles`

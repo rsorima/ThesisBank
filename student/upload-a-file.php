@@ -84,26 +84,6 @@
 
         if(move_uploaded_file($_FILES['thesis_file']['tmp_name'], $targetfolder))
     {   
-//            if($type == 'Documentation'){
-//                $sql = "INSERT INTO documentation (group_id, report_file, adviser_id, report_type) VALUES ('$group_id', '$targetfolder', '$adviser_id', '$type')";
-//                $stmt= $pdo->prepare($sql);
-//                $stmt->execute();
-//                $prompt_message = '<p class="alert alert-success">Report Succesfully Sent</p>';
-//
-//            //// Alerts
-//                $alertType = "report";
-//                $message = "A group sent a ".$type.". Check them now!";
-//                $link = $type == "Status Report" ? "statusreport.php" : "journalreport.php";
-//                $save_details = "INSERT into alert_details (alertType, message, link) values ('$alertType','$message','$link')";
-//                $alert_detail_result = mysqli_query($con, $save_details);
-//
-//                $alertDetailId = mysqli_insert_id($con);
-//
-//                $send_alert = "INSERT into alerts (alertDetailsId, userId) values ('$alertDetailId', '$adviser_id')";
-//                $send_result = mysqli_query($con, $send_alert);
-//        }
-//            else
-//        {
             $sql = "INSERT INTO report (group_id, report_filename, report_type, date_created, sem_id, event_id, status) VALUES ($group_id, '$targetfolder',$type, now(), $sem, $event_id, 1)";
             $stmt= $pdo->prepare($sql);
             $stmt->execute();
@@ -144,7 +124,6 @@
     tdbDatabase::disconnect();
 ?>
     <body class="hold-transition skin-green sidebar-mini fixed">
-
         <div class="wrapper">
             
             <?php

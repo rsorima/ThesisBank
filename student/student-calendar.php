@@ -74,7 +74,8 @@
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="col-md-3" hidden>
-                                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" class="btn m-t-20 btn-info btn-block waves-effect waves-light btn-open-event-modal">
+                                                        <a href="javascript:void(0)" data-toggle="modal" data-target="#add-new-event" class="btn m-t-20 btn-info 
+                                                                btn-block waves-effect waves-light btn-open-event-modal">
                                                                 <i class="ti-plus"></i> Add New Event
                                                             </a>
                                                     </div>

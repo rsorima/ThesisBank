@@ -145,7 +145,6 @@ $(document).ready(function(){
     });
 
     function getEvent(id){
-
         $.ajax({
             url: "fetch/get-event-by-id.php?id="+id,
             type: "GET",
