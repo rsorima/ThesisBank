@@ -13,7 +13,7 @@
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		$sql = "SELECT u.userid, u.firstname AS Fname, u.lastname AS Lname, u.username, u.password, u.usertype, u.branchid, u.status, b.branchid, b.coursecode 
-		from users u inner join branches b on u.branchid = b.branchid where u.usertype = 5 AND u	.branchid = $branchid";
+		from users u inner join branches b on u.branchid = b.branchid where u.usertype = 5 AND u.branchid = $branchid";
 		$stmt = $conn->prepare($sql);
 		$stmt->execute();
 		foreach ($stmt	as $user)
