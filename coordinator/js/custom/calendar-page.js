@@ -272,7 +272,9 @@ $(document).ready(function(){
                     url: "fetch/delete-event.php",
                     data: "id=" + eventId,
                     success: function (response) {
+                        if(response != ''){
                             alert("Event Deleted");
+                        }   alert("Unable to delete event! Some students may have passed requirement on this event");                                                     
                             location.reload();
                     }
                 });
