@@ -124,7 +124,11 @@
                                         </thead>
                                         <?php  
                                             $branchid = $_SESSION['branchid'];
-                                            $query ="SELECT u.id, u.firstname AS Fname, u.lastname AS Lname, u.username, u.password, u.role, u.program, u.status, b.id, b.code from users u inner join programs b on u.program = b.id WHERE u.role = 4 and u.id != 2";
+                                            $course = $_SESSION['course'];
+                                            $sem = $_SESSION['sem'];
+                                            // $query ="SELECT u.id, u.firstname AS Fname, u.lastname AS Lname, u.username, u.password, u.role, u.program, u.status, b.id, b.code from users u inner join programs b on u.program = b.id WHERE u.role = 4 and u.id != 2";
+                                            $query ="SELECT u.id, u.firstname AS Fname, u.lastname AS Lname, u.username, u.password, u.role, u.program, u.status, b.id, b.code 
+                                                    from users u inner join programs b on u.program = b.id WHERE u.role = 4 and u.id != 2 AND u.program = '$course' AND u.sem = '$sem'";
                                             $result = mysqli_query($con, $query);
                                             while($row = mysqli_fetch_array($result))  
                                             {  

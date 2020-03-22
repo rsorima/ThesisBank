@@ -123,9 +123,14 @@
                                                 <th width="12%">Action</th>
                                             </tr>
                                         </thead>
-                                        <?php  
+                                        <?php
                                             $branchid = $_SESSION['branchid'];
-                                            $query ="SELECT u.id, u.firstname AS Fname, u.lastname AS Lname, u.username, u.password, u.role, u.program, u.status, b.id, b.code from users u inner join programs b on u.program = b.id WHERE u.role = 5";
+                                            $course = $_SESSION['course'];
+                                            $sem = $_SESSION['sem'];
+                                            // $query ="SELECT u.id, u.firstname AS Fname, u.lastname AS Lname, u.username, u.password, u.role, u.program, u.status, b.id, b.code 
+                                            //         from users u inner join programs b on u.program = b.id WHERE u.role = 5";
+                                            $query ="SELECT u.id, u.firstname AS Fname, u.lastname AS Lname, u.username, u.password, u.role, u.program, u.status, b.id, b.code 
+                                                    from users u inner join programs b on u.program = b.id WHERE u.role = 5 AND u.program = '$course' AND u.sem = '$sem'";                                            
                                             $result = mysqli_query($con, $query);
                                             while($row = mysqli_fetch_array($result))  
                                             {  
