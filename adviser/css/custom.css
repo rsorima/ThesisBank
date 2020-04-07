@@ -1,0 +1,23 @@
+.col-item-thesis .el-card-content h4 {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.col-item-thesis .el-card-content span.text-muted {
+	text-align: center;
+    display: block;
+}
+
+.col-item-thesis {
+	margin-bottom: 30px;
+}
+
+.col-item-thesis a {
+	text-decoration: none;
+	color: #000;
+}
+
+form#form-user {
+    display: block !important;
+}

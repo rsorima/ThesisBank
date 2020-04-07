@@ -1,0 +1,8 @@
+.error {
+    color: #db3f3f;
+    font-size: 12px;
+}
+.form-error {
+    border: 1px solid #db3f3f !important;
+    transition: all 0s !important;
+}

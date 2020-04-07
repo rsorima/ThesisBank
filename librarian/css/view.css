@@ -1,0 +1,197 @@
+.content .panel .view-head {
+    padding:20px 50px;
+}
+.modal-body .panel .view-head {
+    padding:0;
+    margin-bottom:30px;
+}
+.content .panel .view-body {
+    padding:20px 50px;
+}
+.content .panel .header1 {
+    margin-top:6px;
+    margin-bottom:6px;
+    font-weight: 600;
+}
+.content .panel .header2 {
+    margin-top:6px;
+    margin-bottom:6px;
+}
+.content .panel .table-view {
+    padding:20px 50px;
+    border: 1px solid #000000;
+    margin-bottom: 40px;
+}
+.content .panel .table-view tfoot{
+    padding:20px 50px;
+    border: 1px solid #000000;
+    margin-bottom: 40px;
+}
+.content .panel .table-view th {
+    border: 1px solid #000000;
+}
+.content .panel .table-view th {
+    padding: 10px 18px;
+    font-size:16px;
+    font-weight: 700;
+}
+.content .panel .table-view .head-ledger {
+    padding: 10px 18px;
+    font-size:20px;
+    font-weight: 700;
+}
+/*.content .panel .table-view tr {
+    border-bottom: 1px solid #000000;
+}
+*/.content .panel .table-view td {
+    padding: 8px 8px 8px 8px;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+.content .panel .table-view td input {
+    margin-right:2px;
+    border:none;
+    background-color: transparent;
+    font-size: 16px;
+    color:black;
+}
+.content .panel .table-view td .form-account2 {
+    padding-left:50px;
+}
+.content .panel .table-view td .form-desc {
+    font-style: italic;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.content .panel .table-view td .form-credit {
+    margin-top:35px;
+}
+
+
+/* MODAL VIEWING */
+.modal-content .modal-body .header1 {
+    margin-top:6px;
+    margin-bottom:6px;
+    font-weight: 600;
+}
+.modal-content .modal-body .header2 {
+    margin-top:6px;
+    margin-bottom:6px;
+}
+.modal-content .modal-body .table-view {
+    padding:20px 50px;
+    border: 1px solid #000000;
+}
+.modal-content .modal-body .table-view th {
+    border: 1px solid #000000;
+}
+.modal-content .modal-body .table-view th {
+    padding: 10px 18px;
+    font-size:16px;
+    font-weight: 700;
+}
+/*.modal-content .modal-body .table-view tr {
+    border-bottom: 1px solid #000000;
+}*/
+.modal-content .modal-body .table-view td {
+    padding: 8px 8px 0 8px;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+}
+.modal-content .modal-body .table-view td input {
+    margin-right:2px;
+    border:none;
+    background-color: transparent;
+    font-size: 16px;
+    color:black;
+}
+.modal-content .modal-body .table-view td .form-account2 {
+    padding-left:50px;
+}
+.modal-content .modal-body .table-view td .form-desc {
+    font-style: italic;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.modal-content .modal-body .table-view td .form-credit {
+    margin-top:35px;
+}
+.modal-content .modal-body-view .view-group {
+    background-color: #F1F1F1;
+    padding: 20px 50px;
+}
+.modal-content .modal-body-view .view-group-amount {
+    background-color: #FFFFFF;
+    margin:0;
+    padding-top:20px;
+    padding-bottom:20px;
+}
+.modal-content .modal-body-view .view-control {
+    margin: 10px 20px;
+}
+.modal-content .modal-body-view .view-amount {
+    font-weight: 700;
+    font-size: 70px;
+    margin-bottom: 8px;
+    color: #5c4787;
+    text-align: center;
+}
+.modal-content .modal-body-view .view-position {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+    text-align: center;
+}
+
+
+/* ------------------------------------------------------------------------------------------ */
+
+.content .panel .table-view-is {
+    padding:20px 50px;
+    border: none;
+    margin-bottom: 40px;
+}
+.content .panel .table-view-is tfoot{
+    padding:20px 50px;
+    border: none;
+    margin-bottom: 40px;
+}
+.content .panel .table-view-is th {
+    border: none;
+}
+.content .panel .table-view-is th {
+    padding: 10px 18px;
+    font-size:16px;
+    font-weight: 700;
+}
+.content .panel .table-view-is .head-ledger {
+    padding: 10px 18px;
+    font-size:20px;
+    font-weight: 700;
+}
+/*.content .panel .table-view tr {
+    border-bottom: 1px solid #000000;
+}
+*/.content .panel .table-view-is td {
+    padding: 8px 8px 8px 8px;
+    border-left: none;
+    border-right: none;
+}
+.content .panel .table-view-is td input {
+    margin-right:2px;
+    border:none;
+    background-color: transparent;
+    font-size: 16px;
+    color:black;
+}
+.content .panel .table-view-is td .form-account2 {
+    padding-left:50px;
+}
+.content .panel .table-view-is td .form-desc {
+    font-style: italic;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+.content .panel .table-view-is td .form-credit {
+    margin-top:35px;
+}
