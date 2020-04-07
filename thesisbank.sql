@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.7.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2020 at 04:20 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.3
+-- Generation Time: Apr 07, 2020 at 03:03 PM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,51 @@ SET time_zone = "+00:00";
 --
 -- Database: `thesisbank`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alerts`
+--
+
+CREATE TABLE `alerts` (
+  `alertId` int(11) NOT NULL,
+  `alertDetailsId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `isRead` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `alerts`
+--
+
+INSERT INTO `alerts` (`alertId`, `alertDetailsId`, `userId`, `isRead`) VALUES
+(1, 1, 4, 1),
+(8, 9, 13, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `alert_details`
+--
+
+CREATE TABLE `alert_details` (
+  `alertDetailsId` int(11) NOT NULL,
+  `alertDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `alertType` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `dynamicId` int(11) NOT NULL,
+  `branchid` int(11) NOT NULL,
+  `link` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `alert_details`
+--
+
+INSERT INTO `alert_details` (`alertDetailsId`, `alertDate`, `alertType`, `message`, `dynamicId`, `branchid`, `link`) VALUES
+(1, '2020-04-06 15:20:13', 'report', 'A group sent a 1. Check them now!', 0, 0, 'journalreport.php'),
+(9, '2020-04-07 18:15:04', 'report', 'Your Adviser APPROVED your submission on Week 3 - Journal Report . Check them now!', 0, 0, 'upload-a-file.php');
 
 -- --------------------------------------------------------
 
@@ -71,12 +116,13 @@ INSERT INTO `events` (`id`, `title`, `sem`, `event_type`, `course`, `Description
 (10, 'Deliverables Deadline', 0, 0, 0, 'Deadline for Deliverables', '2019-10-29 06:00:00', '2019-10-29 18:00:00', 1),
 (13, 'redefense', 0, 0, 0, 'it project', '2019-11-22 13:00:00', '2019-11-22 17:00:00', 0),
 (14, 'deliverables', 0, 0, 0, 'passing of status report', '2019-11-22 08:00:00', '2019-11-22 00:59:00', 0),
-(15, 'Week 1', 1, 2, 2, 'progress 1', '2020-03-12 18:40:00', '2020-03-18 18:40:00', 4),
-(16, 'final defense', 1, 2, 2, 'final defense', '2020-03-11 13:00:00', '2020-03-12 13:00:00', 5),
-(18, 'char3', 1, 2, 2, 'Progress 2', '2020-03-11 13:00:00', '2020-03-14 13:00:00', 4),
-(20, 'week3', 1, 2, 2, 'week3', '2020-03-23 13:00:00', '2020-03-25 13:00:00', 4),
+(15, 'Week 4', 1, 2, 2, 'Status Report', '2020-03-12 18:40:00', '2020-03-18 18:40:00', 4),
+(16, 'Week 1', 1, 1, 2, 'Status Report', '2020-03-11 13:00:00', '2020-03-12 13:00:00', 5),
+(18, 'Week 2', 1, 2, 2, 'Status Report', '2020-03-11 13:00:00', '2020-03-14 13:00:00', 4),
+(20, 'Week 3', 1, 2, 2, 'Journal Report', '2020-03-23 13:00:00', '2020-03-25 13:00:00', 4),
 (21, 'defense1', 1, 1, 2, 'defense1', '2020-03-20 13:00:00', '2020-03-21 13:00:00', 5),
-(22, 'mock defense', 1, 1, 2, 'mock defense', '2020-03-13 13:30:00', '2020-03-13 18:00:00', 17);
+(22, 'mock defense', 1, 1, 2, 'mock defense', '2020-03-13 13:30:00', '2020-03-13 18:00:00', 17),
+(24, 'Week 5', 1, 2, 2, 'Journal Report', '2020-04-06 17:00:00', '2020-04-06 20:00:00', 4);
 
 -- --------------------------------------------------------
 
@@ -183,8 +229,7 @@ CREATE TABLE `report` (
 INSERT INTO `report` (`id`, `group_id`, `event_id`, `sem_id`, `report_type`, `report_filename`, `status`, `date_created`) VALUES
 (14, 20, 16, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', 3, '2020-03-11 15:58:32'),
 (15, 20, 15, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', 2, '2020-03-12 10:51:13'),
-(16, 20, 20, 1, 2, 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', 2, '2020-03-12 10:57:04'),
-(17, 20, 20, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', 1, '2020-03-12 18:22:44');
+(16, 20, 20, 1, 2, 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', 3, '2020-03-12 10:57:04');
 
 -- --------------------------------------------------------
 
@@ -324,11 +369,11 @@ INSERT INTO `users` (`id`, `role`, `program`, `sem`, `firstname`, `lastname`, `u
 (4, 4, 2, 1, 'adviser', 'adviser', 'adviser', 'adviser', 0, '2020-03-10 21:09:56'),
 (5, 3, 2, 1, 'coordinator', 'coordinator', 'coordinator', 'coordinator', 0, '2020-03-10 21:28:37'),
 (12, 6, 1, 1, 'librarian', 'librarian', 'librarian', 'librarian', 0, '2020-03-10 23:45:38'),
-(13, 5, 2, 1, 'kent', 'mozo', 'kent', 'mozo', 0, '2020-03-10 20:15:50'),
+(13, 5, 2, 1, 'kent', 'mozo', 'kent', 'mozo', 1, '2020-03-10 20:15:50'),
 (17, 4, 2, 1, 'adviser2', 'adviser2', 'adviser2', 'adviser2', 0, '2020-03-11 10:50:49'),
 (18, 2, 2, 1, 'programhead', 'programhead', 'programhead', 'programhead', 0, '2020-03-11 16:07:03'),
 (19, 5, 2, 1, 'reno', 'sorima', 'reno', 'sorima', 0, '2020-03-12 10:19:58'),
-(20, 3, 6, 1, 'HRM coordinator', 'HRM coordinator', 'HRM coordinator', 'coordinator', 1, '2020-03-19 00:19:22');
+(20, 3, 6, 1, 'HRM coordinator', 'HRM coordinator', 'HRM coordinator', 'coordinator', 0, '2020-03-19 00:19:22');
 
 -- --------------------------------------------------------
 
@@ -356,6 +401,18 @@ INSERT INTO `user_roles` (`id`, `description`) VALUES
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `alerts`
+--
+ALTER TABLE `alerts`
+  ADD PRIMARY KEY (`alertId`);
+
+--
+-- Indexes for table `alert_details`
+--
+ALTER TABLE `alert_details`
+  ADD PRIMARY KEY (`alertDetailsId`);
 
 --
 -- Indexes for table `calendar_events`
@@ -459,6 +516,18 @@ ALTER TABLE `user_roles`
 --
 
 --
+-- AUTO_INCREMENT for table `alerts`
+--
+ALTER TABLE `alerts`
+  MODIFY `alertId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT for table `alert_details`
+--
+ALTER TABLE `alert_details`
+  MODIFY `alertDetailsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT for table `calendar_events`
 --
 ALTER TABLE `calendar_events`
@@ -468,7 +537,7 @@ ALTER TABLE `calendar_events`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `groups`
@@ -504,7 +573,7 @@ ALTER TABLE `report`
 -- AUTO_INCREMENT for table `reportstatus`
 --
 ALTER TABLE `reportstatus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `report_type`
