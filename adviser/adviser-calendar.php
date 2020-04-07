@@ -150,11 +150,15 @@
                                         </div>
                                         <div class="col-md-12">
                                             <label class="control-label">Event Description</label>
+<<<<<<< HEAD
                                             <select class='form-control report-type' name='type' id='event-summary'>
                                                 <option value="Status Report">Status Report</option>
                                                 <option value="Journal Report">Journal Report</option>
 <!--                                            <option value="3">Documentation</option>-->
                                             </select>
+=======
+                                            <input id='event-summary' class="form-control" rows="4" cols="50" />
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
                                         </div>
                                         <div class="col-md-6">
                                             <label class="control-label">Date Start:</label>

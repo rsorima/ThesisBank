@@ -62,10 +62,17 @@
                                             <tr>
                                                 <th width="20%">Group Name</th>
                                                 <?php 
+<<<<<<< HEAD
                                                     $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course AND Description = 'Journal Report' ORDER BY start ASC";
                                                     $res = mysqli_query($con, $sqlEvents);
                                                     while($row = mysqli_fetch_assoc($res)){
                                                         echo '<th width="15%">'.$row['title'].'</th>';
+=======
+                                                    $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course ORDER BY start ASC";
+                                                    $res = mysqli_query($con, $sqlEvents);
+                                                    while($row = mysqli_fetch_assoc($res)){
+                                                        echo '<th width="15%">'.$row['Description'].'</th>';
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
                                                     }
                                                 ?>
                                             </tr>
@@ -95,7 +102,11 @@
                                                         echo '<br>'. $grow['lastname'];
                                                     }
                                                echo    '</td>';                                                    
+<<<<<<< HEAD
                                                   $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 AND Description = 'Journal Report' ORDER BY start ASC";
+=======
+                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 ORDER BY start ASC";
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
         //                                            echo $query;
                                                     $eresult = mysqli_query($con, $events);
                                                     while($erow = mysqli_fetch_array($eresult))  

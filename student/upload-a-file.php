@@ -137,6 +137,7 @@
                 <!-- MAIN CONTENT -->
                 <section class="content">
 
+<<<<<<< HEAD
                     <div class="row">
                             <div class = "col-md-12">
                                 <div class="box box-info border-blue">
@@ -268,6 +269,82 @@
                 </div>
             </section>
             </div>
+=======
+                <div class="row">
+                        <div class = "col-md-12">
+                            <div class="box box-info border-blue">
+                                    <div class="box-body">
+                                        <?php print $prompt_message; ?>
+                                        <form class='' action="" method="post" enctype="multipart/form-data">
+                                            <div class="form-group">
+                                                <label>Report Type: </label>
+                                                <select class='form-control report-type' name='type'>
+                                                    <option value="1">Status Report</option>
+                                                    <option value="2">Journal Report</option>
+<!--                                                    <option value="3">Documentation</option>-->
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Progress Schedule: </label>
+                                                <select class='form-control report-type' name='event'>
+                                                    <?php require("php/schedule.php"); ?>
+                                                </select>
+                                            </div>
+                                            <div class="form-group file-upload">
+                                                <label>File Upload</label>
+                                                <div class="custom-file">
+                                                    <input  name="thesis_file" type="file" class="custom-file-input" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group btn-submit">
+                                                <input type="submit" class="btn btn-primary" value="Submit"></div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </form>
+                                        <div class= 'container shareable-container hide-element'>
+                                            <div class="row">
+                                            <div class='col-md-12'>
+                                                    <label>Document Title</label>
+                                                </div>
+                                                <div class='col-md-6'>
+                                                    <input type="text" class="form-control input-document-title" placeholder="Input your thesis title here"/>
+                                                </div>
+                                                <div class='col-md-12'>
+                                                <br>
+                                                    <label>Shareable Link of Document</label>
+                                                </div>
+                                                <div class='col-md-6'>
+                                                    <input type="text" class="form-control input-link" placeholder="Input your shareable link here"/>
+                                                </div>
+                                                <div class='col-md-12'>
+                                                <br>
+                                                    <input type="submit" class="btn btn-primary send-link" value="Send this link">
+                                                </div>
+                                            </div>
+                                            <div class="container">
+                                                <br>
+                                                <strong><p style="color: black;">Before sending the document link:</p></strong>
+                                                <ol class="number list">
+                                                    <li class="text1"style="color: black;"><p>Upload the file to google drive.</p> </li>
+                                                    <li class="text2"style="color: black;" ><p>Set the file sharing to available to anyone.</p> </li>
+                                                    <li class= "text3"style="color: black;"><p>Get the shareable link.</p> </li>
+                                                    <li class= "text4" style="color: black;"><p>Paste the link in the field above.</p> </li>
+                                                    <li class= "text5" style="color: black;"><p>Click the button to send link to adviser.</p> </li>
+                                                </ol>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+
+                        
+                        </div>
+                    </section>
+                </div>
+
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
 
                 <!-- FOOTER -->
                 <?php include('../includes/footer.php');?>
@@ -287,12 +364,16 @@
 
         <script src="js/thesisfile.js"></script>
         <script src="js/datatable.js"></script>
+<<<<<<< HEAD
             <script>
                 $(document).ready(function(){  
                     $('#tblThesis').DataTable();  
 
                 });
             </script>
+=======
+        
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
         <!-- AdminLTE App -->
         <script src="../template/dist/js/adminlte.min.js"></script>    
         <script src='../custom-js/account.js'></script>

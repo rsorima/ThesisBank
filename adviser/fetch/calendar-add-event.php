@@ -8,9 +8,14 @@ $desc = isset($_POST['desc']) ? $_POST['desc'] : "";
 
 $course = $_SESSION['branchid'];
 $sem = $_SESSION['sem'];
+<<<<<<< HEAD
 $uid = $_SESSION['uid'];
 
 $sqlInsert = "INSERT INTO events (Title,Start,End, Description,sem, course, event_type, user_id) VALUES ('".$title."','".$start."','".$end ."','".$desc."', $sem, $course, 2, $uid)";
+=======
+
+$sqlInsert = "INSERT INTO events (Title,Start,End, Description,sem, course, event_type) VALUES ('".$title."','".$start."','".$end ."','".$desc."', $sem, $course, 2)";
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
 //echo $sqlInsert;
 $result = mysqli_query($con, $sqlInsert);
 

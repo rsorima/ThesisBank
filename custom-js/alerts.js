@@ -10,7 +10,11 @@ $(document).ready(function(){
                 //console.log("alert count", data);
                 if(data.code == '200'){
                     $('.notif-badge').removeClass("hide-element");
+<<<<<<< HEAD
                     $('.notif-badge').html(data.count);
+=======
+                     $('.notif-badge').html(data.count);
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
                 }
                 else{
                     $('.notif-badge').addClass("hide-element");
@@ -33,7 +37,11 @@ $(document).ready(function(){
                         $('.alert-item-list').append(
                             "<li class='list-group-item d-flex justify-content-between align-items-center alert-item' alertId='"+data.result[i].alertId+"' alertLink='"+data.result[i].link+"'>"+
                                 data.result[i].message+
+<<<<<<< HEAD
                                 "<span class='fa fa-close remove-alert' alertId='"+data.result[i].alertId+"'>"+data.result[i].message+"</span>"+
+=======
+                                "<span class='fa fa-close remove-alert' alertId='"+data.result[i].alertId+"'></span>"+
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
                             "</li>"
                         );
                     }

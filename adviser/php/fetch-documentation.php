@@ -6,7 +6,11 @@ $branchid = $_SESSION['branchid'];
 $get_group = "SELECT g.group_name, g.branchid as branch_id, d.report_file, d.report_type, d.documentation_id FROM groups g INNER JOIN documentation d on g.group_id = d.group_id WHERE branchid = '$branchid' AND coordinator_id = 0";
 
 $result = mysqli_query($con, $get_group);
+<<<<<<< HEAD
 $rowCount = mysqli_num_rows($result);
+=======
+$rowCount = $stmt->rowCount();
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
 $output['data'][] = [];
 if(mysqli_num_rows($result) > 0){
     while($row = $result -> fetch_assoc())

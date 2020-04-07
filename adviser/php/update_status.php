@@ -9,6 +9,7 @@
         $page_type = $_GET['pageid'];
         $action = $_GET['action'];
         
+<<<<<<< HEAD
 
         
         if($action == 'a') {
@@ -29,6 +30,13 @@
 
         $send_alert = "INSERT into alerts (alertDetailsId, userId) values ('$alertDetailId', '$adviser_id')";
         $send_result = mysqli_query($con, $send_alert);
+=======
+        if($action == 'a') {
+            $update = "UPDATE report set status = 3 where id=$id ";
+        }else {
+            $update = "UPDATE report set status = 2 where id=$id ";
+        }
+>>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
         
         $result = mysqli_query($con, $update);
         if($page_type == 1) {
