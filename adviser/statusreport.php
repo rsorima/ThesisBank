@@ -4,6 +4,7 @@
     session_start();
     if (empty($_SESSION['uid'])) {header('location: ../index.php');}
     $sem = $_SESSION['sem'];
+    $uid = $_SESSION['uid'];
     $type = 1;
     $course = $_SESSION['branchid'];
 ?>
@@ -63,17 +64,10 @@
                                                 <th width="20%">Group Name</th>
                                                 <?php 
                                                     $counter = 0;
-<<<<<<< HEAD
                                                     $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course AND Description = 'Status Report' ORDER BY start ASC";
                                                     $res = mysqli_query($con, $sqlEvents);
                                                     while($row = mysqli_fetch_assoc($res)){
                                                         echo '<th width="15%">'.$row['title'].'</th>';
-=======
-                                                    $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course ORDER BY start ASC";
-                                                    $res = mysqli_query($con, $sqlEvents);
-                                                    while($row = mysqli_fetch_assoc($res)){
-                                                        echo '<th width="15%">'.$row['Description'].'</th>';
->>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
                                                         $counter++;
                                                     }
                                                 ?>
@@ -81,7 +75,7 @@
                                         </thead>
                                         <?php  
                                             $branchid = $_SESSION['branchid'];
-                                            $query ="SELECT g.id as group_id, g.name as group_name, g.adviser as adviser_id, g.program as branch_id, sr.report_filename, sr.date_created, sr.report_type, u.firstname, u.lastname from groups g left join report sr on g.id = sr.group_id left join users u on u.id = g.adviser where g.program = $branchid group by g.name";
+                                            $query ="SELECT g.id as group_id, g.name as group_name, g.adviser as adviser_id, g.program as branch_id, sr.report_filename, sr.date_created, sr.report_type, u.firstname, u.lastname from groups g left join report sr on g.id = sr.group_id left join users u on u.id = g.adviser where g.program = $branchid AND g.adviser = $uid group by g.name";
 //                                            echo $query;
                                             $result = mysqli_query($con, $query);
                                             while($row = mysqli_fetch_array($result))  
@@ -104,11 +98,7 @@
                                                         echo '<br>'. $grow['lastname'];
                                                     }
                                                echo    '</td>';                                                    
-<<<<<<< HEAD
-                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 AND Description = 'Status Report' ORDER BY start ASC";
-=======
-                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 ORDER BY start ASC";
->>>>>>> 7f121b9ca794dc78f6f5eac497dfd4fbf3fbc482
+                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 AND Description = 'Status Report' AND user_id = $uid ORDER BY start ASC";
         //                                            echo $query;
                                                     $eresult = mysqli_query($con, $events);
                                                     while($erow = mysqli_fetch_array($eresult))  
@@ -120,6 +110,8 @@
                                                         if(mysqli_num_rows($rresult) > 0) {
                                                             while($rrow = mysqli_fetch_array($rresult))  
                                                             {
+                                                                
+                                                                echo '<a href="../student/'.$rrow['report_filename'].'" title="Click to Download">'.str_replace("testupload/","", $rrow['report_filename']).'</a><br>';
                                                                 if($rrow['status'] == 1) {
                                                                     echo '<span class="badge badge-dark" style="padding:10px; font-size:11px!important;">Submitted</span>';
                                                                     echo '<br>';
@@ -127,6 +119,12 @@
                                                                 }else if($rrow['status'] == 2) {
                                                                     echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #dc3545"">Declined</span>';
                                                                 }else if($rrow['status'] == 3) {
+                                                                    echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745"">Approved</span>';
+                                                                }else if($v['status'] == 4) {
+                                                                    echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745"">Approved</span>';
+                                                                }else if($v['status'] == 5) {
+                                                                    echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745"">Approved</span>';
+                                                                }else if($v['status'] == 6) {
                                                                     echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745"">Approved</span>';
                                                                 }else {
                                                                     echo '<span class="badge badge-danger" style="padding:10px; font-size:11px!important;color:#212529;background-color: #ffc107">No Entry</span>';

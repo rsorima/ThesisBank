@@ -2,7 +2,7 @@ $(document).ready(function(){
     var load =0;
 	$('.btn-save-event').click(function(){
 		var eventTitle = $('#event-title').val();
-		var eventSummary = $('#event-summary').val();
+		var eventSummary = "Documentation";
 		var dateStart =$('#event-date-start').val();
         var dateEnd =$('#event-date-end').val();
 		var timeStart = $('#event-time-start').val()
@@ -274,7 +274,7 @@ $(document).ready(function(){
                     success: function (response) {
                         if(response != ''){
                             alert("Event Deleted");
-                        }   alert("Unable to delete event! Some students may have passed requirement on this event");                                                     
+                        }   alert("NOTICE! Some students may have passed requirement on this event");                                                     
                             location.reload();
                     }
                 });

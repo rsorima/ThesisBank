@@ -148,10 +148,12 @@
                                             <label class="control-label">Event Title</label>
                                             <input class="form-control form-white" placeholder="Enter Title" type="text" name="event-title" id='event-title' />
                                         </div>
+<!--
                                         <div class="col-md-12">
                                             <label class="control-label">Event Description</label>
                                             <input id='event-summary' class="form-control" rows="4" cols="50" />
                                         </div>
+-->
                                         <div class="col-md-6">
                                             <label class="control-label">Date Start:</label>
                                             <input type='date' id='event-date-start' class='form-control' />

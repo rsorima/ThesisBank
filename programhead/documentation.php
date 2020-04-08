@@ -60,16 +60,18 @@
                                                 <th width="15%">Adviser Name</th> 
                                                 <th width="15%">Group Name</th>  
                                                 <th width="15%">Report File</th>                                              
+                                                <th width="15%">Thesis Title</th>
                                                 <th width="12%">Date</th>
                                                 <th width="12%">Action</th>
                                             </tr>
                                         </thead>
                                          <?php  
                                             $branchid = $_SESSION['branchid'];
-                                            $query ="SELECT g.name, g.adviser, g.id as branch_id, d.report_filename, d.report_type, d.date_created FROM groups g INNER JOIN report d on g.id = d.group_id WHERE program = '$branchid' AND report_type = 3";
+                                            $query ="SELECT g.name, g.adviser, g.id as branch_id, d.id as report_id, d.status, d.report_title, d.report_filename, d.report_type, d.date_created FROM groups g INNER JOIN report d on g.id = d.group_id WHERE program = '$branchid' AND report_type = 3 AND (status = 4 || status = 6)";
                                             $result = mysqli_query($con, $query);
                                             while($row = mysqli_fetch_array($result))  
                                             {  
+                                                $report_filename = str_replace("testupload/","", $row['report_filename']);
                                                 $adviserId = $row['adviser'];
                                                 if($adviserId != 2){
                                                     $sqlAdviserName = "SELECT firstname, lastname from users where id = '$adviserId'";
@@ -86,9 +88,16 @@
                                                <tr>  
                                                     <td>'.$Aname.'</td>  
                                                     <td>'.$row["name"].'</td>  
-                                                    <td>'.$row["report_filename"].'</td>  
+                                                    <td><a href="../student/'.$row['report_filename'].'" title="Cick to Download" download>'.$report_filename.'</a></td>  
+                                                    <td>'.$row["report_title"].'</td>
                                                     <td>'.$row["date_created"].'</td>  
-                                                    <td><a class="btn btn-xs btn-primary btn-table" href="../student/'.$row['report_filename'].'" style="width: 65px;" download>View</a></td>
+                                                    <td><center>';
+                                               if($row['status'] == 6) {
+                                                   echo '<p class="badge badge-primary" style="padding:10px; font-size:11px!important;background-color:#3857b1;">Archived</p>';
+                                               }else {
+                                                   echo '<a href="php/archive.php?id='.$row['report_id'].'" class="btn btn-primary">Archive</a>';
+                                               }
+                                               echo '</center></td>
                                                </tr>  
                                                ';  
                                             }  

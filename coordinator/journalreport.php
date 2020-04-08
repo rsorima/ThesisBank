@@ -60,12 +60,13 @@
                                     <table id="tblJreport" class="table table-bordered table-hover table-custom">
                                         <thead>
                                             <tr>
-                                                <th width="20%">Group Name</th>
+                                                <th width="10%">Group Name</th>
+                                                <th width="10%">Adviser</th>
                                                 <?php 
-                                                    $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course ORDER BY start ASC";
+                                                    $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course AND Description = 'Journal Report' ORDER BY start ASC";
                                                     $res = mysqli_query($con, $sqlEvents);
                                                     while($row = mysqli_fetch_assoc($res)){
-                                                        echo '<th width="15%">'.$row['Description'].'</th>';
+                                                        echo '<th width="5%">'.$row['title'].'</th>';
                                                     }
                                                 ?>
                                             </tr>
@@ -94,9 +95,10 @@
                                                     {
                                                         echo '<br>'. $grow['lastname'];
                                                     }
-                                               echo    '</td>';                                                    
-                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 ORDER BY start ASC";
-        //                                            echo $query;
+                                               echo    '</td>';
+                                               echo    '<td> <b>'.$Aname.'</b></td>';
+                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 AND Description = 'Journal Report' ORDER BY start ASC";
+//                                                    echo $events;
                                                     $eresult = mysqli_query($con, $events);
                                                     while($erow = mysqli_fetch_array($eresult))  
                                                     {
@@ -110,7 +112,7 @@
                                                                 if($rrow['status'] == 1) {
                                                                     echo '<span class="badge badge-dark" style="padding:10px; font-size:11px!important;">Submitted</span>';
                                                                     echo '<br>';
-                                                                    echo '<a width="10%" class="btn btn-success" href="php/update_status.php?id='.$rrow["id"].'&pageid=2&action=a">APPROVE</a>  <a class="btn btn-danger" href="php/update_status.php?id='.$rrow["id"].'&pageid=2&action=r">REJECT</a>';
+//                                                                    echo '<a width="10%" class="btn btn-success" href="php/update_status.php?id='.$rrow["id"].'&pageid=2&action=a">APPROVE</a>  <a class="btn btn-danger" href="php/update_status.php?id='.$rrow["id"].'&pageid=2&action=r">REJECT</a>';
                                                                 }else if($rrow['status'] == 2) {
                                                                     echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #dc3545"">Declined</span>';
                                                                 }else if($rrow['status'] == 3) {

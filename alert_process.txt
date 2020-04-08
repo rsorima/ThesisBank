@@ -1,0 +1,6 @@
+Good pm tol syensya karon ra ko ka reply balik. Ang mga processes sa notif tol kay
+Student: mag notif kung naay bagong reminder gi post ni adviser or coordinator, mag notif katong status sa ilang gipasa na reports like na accept ba or reject
+Adviser: mag notif sa iyaha kung naa na'y nadawat na gipasa gikan sa  iyang gi handle na group, then mag notif kung unsa'y feedback ni coordinator like accept or reject ghapon
+Coordinator: mag  Notif kung naa sya'y madawat gkan kay adviser
+Phead: mag notif sya kung magpasa na si coordinator sa iyaha ug final output
+Librarian: mag notif ra sya kung na archive na tong final output or tong gipang upload niya

@@ -115,7 +115,15 @@
                                             <td scope="row"><?php print $v['id']; ?></td>
                                             <td><?php print $v['thesis_name']; ?></td>
                                             <td><?php print $v['thesis_year']; ?></td>
-                                            <td><?php print $v['course']; ?></td>
+                                            <td>
+                                                    <?php 
+                                                        $course_sql = "SELECT * FROM programs WHERE id = ".$v['course']."";
+                                                        $course_res = mysqli_query($con, $course_sql);
+                                                        while($row = mysqli_fetch_assoc($course_res)) {
+                                                            echo $row['description'];
+                                                        }
+                                                    ?>
+                                                </td>
                                             <td><?php print $v['date_created']; ?></td>
                                             <td><a href="view-thesis.php?id=<?php print $v['id']; ?>">View</a> | <a href="edit-thesis.php?id=<?php print $v['id']; ?>">Edit</a> | <a href="index.php?action=delete&id=<?php print $v['id']; ?>">Delete</a></td>
                                         </tr>

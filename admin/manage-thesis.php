@@ -43,6 +43,19 @@
 
     $result = '';
 
+    $uid = $_SESSION['uid'];
+    $course = $_SESSION['course'];
+
+    $adviser_sql = "SELECT * FROM users WHERE id = $uid";
+    $adviser_res = mysqli_query($con, $adviser_sql);
+    $adviser = mysqli_fetch_assoc($adviser_res);
+    $adviser_name = $adviser['firstname'] . " " . $adviser['lastname'];
+
+    $coor_sql = "SELECT * FROM users WHERE role = 6";
+    $coor_res = mysqli_query($con, $coor_sql);
+    $coor = mysqli_fetch_assoc($coor_res);
+    $coor_id = $coor['id'];
+    
     if(!empty($_FILES)){
         $targetfolder = "testupload/";
         $course = !empty($_POST['course']) ? $_POST['course'] : '';
@@ -58,6 +71,17 @@
         $stmt= $pdo->prepare($sql);
         $stmt->execute();
         $prompt_message = '<p class="alert alert-success">Thesis Succefully Save</p>';
+        
+        $alertType = "report";
+        $message = $adviser_name ." archived ".$thesis_name." - Documentation. Check them now!";
+        $link = "index.php";
+        $save_details = "INSERT into alert_details (alertType, message, link) values ('$alertType','$message','$link')";
+//        echo $save_details;
+        $alert_detail_result = mysqli_query($con, $save_details);
+        $alertDetailId = mysqli_insert_id($con);
+
+        $send_alert = "INSERT into alerts (alertDetailsId, userId) values ('$alertDetailId', ".$coor_id.")";
+        $send_result = mysqli_query($con, $send_alert);
     }
     else {
         $prompt_message = '<p class="alert alert-error">Problem uploading file</p>';

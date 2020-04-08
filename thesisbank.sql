@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 07, 2020 at 03:03 PM
+-- Generation Time: Apr 08, 2020 at 11:04 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -41,7 +41,47 @@ CREATE TABLE `alerts` (
 
 INSERT INTO `alerts` (`alertId`, `alertDetailsId`, `userId`, `isRead`) VALUES
 (1, 1, 4, 1),
-(8, 9, 13, 1);
+(8, 9, 13, 1),
+(14, 15, 4, 1),
+(15, 16, 4, 1),
+(16, 17, 13, 1),
+(19, 21, 4, 1),
+(20, 22, 13, 1),
+(21, 23, 4, 1),
+(22, 24, 13, 1),
+(23, 25, 19, 0),
+(24, 26, 4, 1),
+(25, 27, 4, 1),
+(26, 28, 13, 1),
+(27, 29, 13, 1),
+(28, 30, 4, 1),
+(29, 31, 13, 1),
+(30, 32, 5, 1),
+(31, 33, 4, 1),
+(32, 35, 4, 1),
+(33, 36, 18, 1),
+(34, 37, 4, 1),
+(35, 38, 4, 1),
+(36, 39, 4, 1),
+(37, 40, 4, 1),
+(38, 41, 4, 1),
+(39, 42, 4, 1),
+(40, 43, 4, 1),
+(41, 44, 4, 1),
+(42, 45, 4, 1),
+(43, 46, 4, 1),
+(44, 47, 13, 1),
+(45, 48, 5, 1),
+(46, 49, 4, 1),
+(47, 50, 13, 0),
+(48, 51, 5, 1),
+(49, 52, 4, 1),
+(50, 53, 18, 1),
+(51, 56, 12, 1),
+(52, 57, 12, 1),
+(53, 58, 12, 1),
+(54, 59, 12, 1),
+(55, 60, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -65,7 +105,51 @@ CREATE TABLE `alert_details` (
 
 INSERT INTO `alert_details` (`alertDetailsId`, `alertDate`, `alertType`, `message`, `dynamicId`, `branchid`, `link`) VALUES
 (1, '2020-04-06 15:20:13', 'report', 'A group sent a 1. Check them now!', 0, 0, 'journalreport.php'),
-(9, '2020-04-07 18:15:04', 'report', 'Your Adviser APPROVED your submission on Week 3 - Journal Report . Check them now!', 0, 0, 'upload-a-file.php');
+(9, '2020-04-07 18:15:04', 'report', 'Your Adviser APPROVED your submission on Week 3 - Journal Report . Check them now!', 0, 0, 'upload-a-file.php'),
+(15, '2020-04-08 15:28:59', 'report', 'group 1 sent a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(16, '2020-04-08 20:04:14', 'report', 'group 1 sent a Status Report on Week 2. Check them now!', 0, 0, 'statusreport.php'),
+(17, '2020-04-08 20:30:13', 'report', 'Your Adviser created a Status Report DEADLINE ON 2020-04-09 18:00. Check them now!', 0, 0, 'upload-a-file.php'),
+(18, '2020-04-08 21:21:13', 'report', 'Your Adviser APPROVED your submission on Thesis Documentation - Documentation . Check them now!', 0, 0, 'upload-a-file.php'),
+(21, '2020-04-08 23:27:34', 'report', 'The Coordinator APPROVED your submission on Thesis Documentation - Documentation of group 1. Check them now!', 0, 0, 'documentation.php'),
+(22, '2020-04-08 23:35:45', 'report', 'Your Adviser APPROVED your submission on Thesis Documentation - Documentation . Check them now!', 0, 0, 'upload-a-file.php'),
+(23, '2020-04-08 23:36:32', 'report', 'The Coordinator APPROVED your submission on Thesis Documentation - Documentation of group 1. Check them now!', 0, 0, 'documentation.php'),
+(24, '2020-04-08 23:47:44', 'report', 'The Coordinator created an event on Documentation titled Thesis Chapter 1 DEADLINE ON 2020-04-20 13:00. Check them now!', 0, 0, 'upload-a-file.php'),
+(25, '2020-04-08 23:47:44', 'report', 'The Coordinator created an event on Documentation titled Thesis Chapter 1 DEADLINE ON 2020-04-20 13:00. Check them now!', 0, 0, 'upload-a-file.php'),
+(26, '2020-04-09 00:02:39', 'report', 'group 1 RESUBMITTED a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(27, '2020-04-09 00:02:50', 'report', 'group 1 RESUBMITTED a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(28, '2020-04-09 01:38:45', 'report', 'Your Adviser APPROVED your submission on Thesis Documentation - Documentation . Check them now!', 0, 0, 'upload-a-file.php'),
+(29, '2020-04-09 01:48:17', 'report', 'Your Adviser APPROVED your submission on Thesis Documentation - Documentation . Check them now!', 0, 0, 'upload-a-file.php'),
+(30, '2020-04-09 01:48:17', 'report', 'adviser adviser Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(31, '2020-04-09 01:49:54', 'report', 'Your Adviser APPROVED your submission on Thesis Documentation - Documentation . Check them now!', 0, 0, 'upload-a-file.php'),
+(32, '2020-04-09 01:49:54', 'report', 'adviser adviser Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(33, '2020-04-09 01:52:37', 'report', 'The Coordinator APPROVED your submission on Thesis Documentation - Documentation of group 1. Check them now!', 0, 0, 'documentation.php'),
+(34, '2020-04-09 01:52:38', 'report', 'coordinator coordinator Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(35, '2020-04-09 01:57:27', 'report', 'The Coordinator APPROVED your submission on Thesis Documentation - Documentation of group 1. Check them now!', 0, 0, 'documentation.php'),
+(36, '2020-04-09 01:57:28', 'report', 'coordinator coordinator Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(37, '2020-04-09 02:04:24', 'report', 'group 1 sent a Status Report on Week 6. Check them now!', 0, 0, 'statusreport.php'),
+(38, '2020-04-09 02:27:12', 'report', 'group 1 RESUBMITTED a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(39, '2020-04-09 02:27:49', 'report', 'group 1 RESUBMITTED a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(40, '2020-04-09 02:28:13', 'report', 'group 1 sent a Journal Report on Week 5. Check them now!', 0, 0, 'journalreport.php'),
+(41, '2020-04-09 02:29:56', 'report', 'group 1 RESUBMITTED a Journal Report on Week 5. Check them now!', 0, 0, 'journalreport.php'),
+(42, '2020-04-09 03:09:24', 'report', 'group 1 sent a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(43, '2020-04-09 03:09:30', 'report', 'group 1 RESUBMITTED a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(44, '2020-04-09 03:11:58', 'report', 'group 1 sent a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(45, '2020-04-09 03:15:34', 'report', 'group 1 RESUBMITTED a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(46, '2020-04-09 03:15:58', 'report', 'group 1 RESUBMITTED a Documentation on Thesis Documentation. Check them now!', 0, 0, 'documentation.php'),
+(47, '2020-04-09 03:28:18', 'report', 'Your Adviser APPROVED your submission on Thesis Documentation - Documentation . Check them now!', 0, 0, 'upload-a-file.php'),
+(48, '2020-04-09 03:28:19', 'report', 'adviser adviser Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(49, '2020-04-09 03:28:54', 'report', 'The Coordinator REJECTED your submission on Thesis Documentation - Documentation of group 1. Check them now!', 0, 0, 'documentation.php'),
+(50, '2020-04-09 03:29:08', 'report', 'Your Adviser APPROVED your submission on Thesis Documentation - Documentation . Check them now!', 0, 0, 'upload-a-file.php'),
+(51, '2020-04-09 03:29:08', 'report', 'adviser adviser Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(52, '2020-04-09 03:29:24', 'report', 'The Coordinator APPROVED your submission on Thesis Documentation - Documentation of group 1. Check them now!', 0, 0, 'documentation.php'),
+(53, '2020-04-09 03:29:24', 'report', 'coordinator coordinator Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(54, '2020-04-09 04:15:11', 'report', 'programhead programhead archived  -  . Check them now!', 0, 0, 'documentation.php'),
+(55, '2020-04-09 04:15:17', 'report', 'programhead programhead archived  -  . Check them now!', 0, 0, 'documentation.php'),
+(56, '2020-04-09 04:20:58', 'report', 'programhead programhead archived Thesis Title - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(57, '2020-04-09 04:35:33', 'report', 'programhead programhead archived Thesis Title - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(58, '2020-04-09 04:36:19', 'report', 'programhead programhead archived Thesis Title - Documentation . Check them now!', 0, 0, 'documentation.php'),
+(59, '2020-04-09 04:43:01', 'report', 'programhead programhead archived Thesis Title - Documentation . Check them now!', 0, 0, 'index.php'),
+(60, '2020-04-09 04:58:54', 'report', 'admin admin archived SMART DOOR - An IOT based project - Documentation. Check them now!', 0, 0, 'index.php');
 
 -- --------------------------------------------------------
 
@@ -117,12 +201,11 @@ INSERT INTO `events` (`id`, `title`, `sem`, `event_type`, `course`, `Description
 (13, 'redefense', 0, 0, 0, 'it project', '2019-11-22 13:00:00', '2019-11-22 17:00:00', 0),
 (14, 'deliverables', 0, 0, 0, 'passing of status report', '2019-11-22 08:00:00', '2019-11-22 00:59:00', 0),
 (15, 'Week 4', 1, 2, 2, 'Status Report', '2020-03-12 18:40:00', '2020-03-18 18:40:00', 4),
-(16, 'Week 1', 1, 1, 2, 'Status Report', '2020-03-11 13:00:00', '2020-03-12 13:00:00', 5),
 (18, 'Week 2', 1, 2, 2, 'Status Report', '2020-03-11 13:00:00', '2020-03-14 13:00:00', 4),
 (20, 'Week 3', 1, 2, 2, 'Journal Report', '2020-03-23 13:00:00', '2020-03-25 13:00:00', 4),
-(21, 'defense1', 1, 1, 2, 'defense1', '2020-03-20 13:00:00', '2020-03-21 13:00:00', 5),
-(22, 'mock defense', 1, 1, 2, 'mock defense', '2020-03-13 13:30:00', '2020-03-13 18:00:00', 17),
-(24, 'Week 5', 1, 2, 2, 'Journal Report', '2020-04-06 17:00:00', '2020-04-06 20:00:00', 4);
+(24, 'Week 5', 1, 2, 2, 'Journal Report', '2020-04-06 17:00:00', '2020-04-06 20:00:00', 4),
+(28, 'Thesis Documentation', 1, 1, 2, 'Documentation', '2020-04-08 13:00:00', '2020-04-15 13:00:00', 5),
+(29, 'Week 6', 1, 2, 2, 'Status Report', '2020-04-09 13:00:00', '2020-04-09 18:00:00', 4);
 
 -- --------------------------------------------------------
 
@@ -218,6 +301,7 @@ CREATE TABLE `report` (
   `sem_id` int(11) NOT NULL,
   `report_type` int(11) NOT NULL,
   `report_filename` varchar(255) NOT NULL,
+  `report_title` varchar(255) NOT NULL,
   `status` int(1) NOT NULL,
   `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -226,10 +310,13 @@ CREATE TABLE `report` (
 -- Dumping data for table `report`
 --
 
-INSERT INTO `report` (`id`, `group_id`, `event_id`, `sem_id`, `report_type`, `report_filename`, `status`, `date_created`) VALUES
-(14, 20, 16, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', 3, '2020-03-11 15:58:32'),
-(15, 20, 15, 1, 1, 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', 2, '2020-03-12 10:51:13'),
-(16, 20, 20, 1, 2, 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', 3, '2020-03-12 10:57:04');
+INSERT INTO `report` (`id`, `group_id`, `event_id`, `sem_id`, `report_type`, `report_filename`, `report_title`, `status`, `date_created`) VALUES
+(15, 20, 15, 1, 1, 'testupload/Darcy_accessibleTourism.pdf', '', 2, '2020-04-08 20:02:48'),
+(16, 20, 20, 1, 2, 'testupload/Exploring-well-being-as-a-tourism-product-resource.pdf', '', 1, '2020-04-08 20:03:30'),
+(23, 20, 18, 1, 1, 'testupload/10.11648.j.ajrs.20170505.11.pdf', '', 1, '2020-04-08 20:04:13'),
+(24, 20, 29, 1, 1, 'testupload/char.docx', '', 1, '2020-04-09 02:04:24'),
+(25, 20, 24, 1, 2, 'testupload/char2.docx', '', 1, '2020-04-09 02:29:56'),
+(27, 20, 28, 1, 3, 'testupload/baboy (Resume).docx', 'Thesis Title', 6, '2020-04-09 03:15:58');
 
 -- --------------------------------------------------------
 
@@ -252,7 +339,8 @@ INSERT INTO `reportstatus` (`id`, `description`) VALUES
 (3, 'Approved by Adviser'),
 (4, 'Approved by Coordinator'),
 (5, 'Approved by Program head'),
-(6, 'Archived');
+(6, 'Archived'),
+(7, 'Rejected by Coordinator');
 
 -- --------------------------------------------------------
 
@@ -338,7 +426,9 @@ CREATE TABLE `thesis_table` (
 
 INSERT INTO `thesis_table` (`id`, `course`, `thesis_name`, `thesis_pdf_file`, `thesis_year`, `date_created`) VALUES
 (2, '2', 'IOT', 'testupload/Booking-com-business-model-canvas-ebook (1).pdf', '2010', '2020-03-11'),
-(3, '1', 'book 2', 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', '2010', '2020-03-12');
+(3, '1', 'book 2', 'testupload/Booking-com-business-model-canvas-ebook (2).pdf', '2010', '2020-03-12'),
+(5, '2', 'Thesis Title', 'testupload/baboy (Resume).docx', '2020', '2020-04-09'),
+(6, '2', 'SMART DOOR - An IOT based project', 'testupload/char.pdf', '2019', '2020-04-09');
 
 -- --------------------------------------------------------
 
@@ -369,7 +459,7 @@ INSERT INTO `users` (`id`, `role`, `program`, `sem`, `firstname`, `lastname`, `u
 (4, 4, 2, 1, 'adviser', 'adviser', 'adviser', 'adviser', 0, '2020-03-10 21:09:56'),
 (5, 3, 2, 1, 'coordinator', 'coordinator', 'coordinator', 'coordinator', 0, '2020-03-10 21:28:37'),
 (12, 6, 1, 1, 'librarian', 'librarian', 'librarian', 'librarian', 0, '2020-03-10 23:45:38'),
-(13, 5, 2, 1, 'kent', 'mozo', 'kent', 'mozo', 1, '2020-03-10 20:15:50'),
+(13, 5, 2, 1, 'kent', 'mozo', 'kent', 'mozo', 0, '2020-03-10 20:15:50'),
 (17, 4, 2, 1, 'adviser2', 'adviser2', 'adviser2', 'adviser2', 0, '2020-03-11 10:50:49'),
 (18, 2, 2, 1, 'programhead', 'programhead', 'programhead', 'programhead', 0, '2020-03-11 16:07:03'),
 (19, 5, 2, 1, 'reno', 'sorima', 'reno', 'sorima', 0, '2020-03-12 10:19:58'),
@@ -519,13 +609,13 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `alerts`
 --
 ALTER TABLE `alerts`
-  MODIFY `alertId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `alertId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `alert_details`
 --
 ALTER TABLE `alert_details`
-  MODIFY `alertDetailsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `alertDetailsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `calendar_events`
@@ -537,7 +627,7 @@ ALTER TABLE `calendar_events`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `groups`
@@ -567,13 +657,13 @@ ALTER TABLE `progress_schedule`
 -- AUTO_INCREMENT for table `report`
 --
 ALTER TABLE `report`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `reportstatus`
 --
 ALTER TABLE `reportstatus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `report_type`
@@ -597,7 +687,7 @@ ALTER TABLE `sem_type`
 -- AUTO_INCREMENT for table `thesis_table`
 --
 ALTER TABLE `thesis_table`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`

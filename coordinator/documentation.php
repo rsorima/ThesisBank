@@ -59,18 +59,20 @@
                                             <tr>
                                                 <th width="15%">Adviser Name</th> 
                                                 <th width="15%">Group Name</th>  
-                                                <th width="15%">Report File</th>                                              
+                                                <th width="15%">Report File</th>
+                                                <th width="15%">Thesis Title</th>
                                                 <th width="12%">Date</th>
-                                                <th width="12%">Action</th>
+                                                <th width="12%">Status</th>
                                             </tr>
                                         </thead>
                                         <?php  
                                             $branchid = $_SESSION['branchid'];
-                                            $query ="SELECT g.id as group_id, g.name as group_name, g.adviser as adviser_id, g.program as branch_id, sr.report_filename, sr.date_created from groups g left join report sr on g.id = sr.group_id where g.program = $branchid and sr.report_type = 3 group by g.name";  
+                                            $query ="SELECT g.id as group_id, g.name as group_name, g.adviser as adviser_id, g.program as branch_id, sr.id, sr.status, sr.report_filename, sr.report_title, sr.date_created from groups g left join report sr on g.id = sr.group_id WHERE g.program = $branchid and sr.report_type = 3 AND ((sr.status > 2 AND sr.status < 6) || sr.status = 7) group by g.name"; 
+//                                            echo $query;
                                             $result = mysqli_query($con, $query);
                                             while($row = mysqli_fetch_array($result))  
                                             {  
-                                                $report_filename = $row['report_filename'];
+                                                $report_filename = str_replace("testupload/","", $row['report_filename']);
                                                 $adviserId = $row['adviser_id'];
                                                 if($adviserId != 2){
                                                     $sqlAdviserName = "SELECT firstname, lastname from users where id = '$adviserId'";
@@ -87,11 +89,28 @@
                                                <tr>  
                                                     <td>'.$Aname.'</td>  
                                                     <td>'.$row["group_name"].'</td>  
-                                                    <td>'.$report_filename.'</td>  
-                                                    <td>'.$row["date_created"].'</td>  
-                                                    <td><a class="btn btn-xs btn-default btn-table" href="../student/'.$report_filename.'" style="width: 65px;" download>View</a></td>  
-                                               </tr>  
-                                               ';  
+                                                    <td><a href="../student/'.$row['report_filename'].'" title="Cick to Download" download>'.$report_filename.'</a></td>  
+                                                    <td>'.$row["report_title"].'</td>
+                                                    <td>'.$row["date_created"].'</td>
+                                                    <td><center>';
+                                                    if($row['status'] == 1) {
+                                                        echo '<span class="badge badge-dark" style="padding:10px; font-size:11px!important;">Group Submitted</span>';
+                                                    }else if($row['status'] == 2) {
+                                                        echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #dc3545"">Declined by Adviser</span>';
+                                                    }else if($row['status'] == 3) {
+                                                        echo '<a width="10%" class="btn btn-success" href="php/update_status.php?id='.$row["id"].'&pageid=3&action=a">APPROVE</a>  <a class="btn btn-danger" href="php/update_status.php?id='.$row["id"].'&pageid=3&action=r">REJECT</a>';
+                                                    }else if($row['status'] == 4) {
+                                                        echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745"">Approved by You</span>';
+                                                    }else if($row['status'] == 5) {
+                                                        echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745"">Approved</span>';
+                                                    }else if($row['status'] == 6) {
+                                                        echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745"">Approved</span>';
+                                                    }else if($row['status'] == 7) {
+                                                        echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #dc3545"">Declined by you</span>';
+                                                    }else {
+                                                        echo '<span class="badge badge-danger" style="padding:10px; font-size:11px!important;color:#212529;background-color: #ffc107">No Entry</span>';
+                                                    }  
+                                               echo '</center>  </td></tr>';  
                                             }  
                                         ?>
                                     </table>

@@ -60,12 +60,13 @@
                                     <table id="tblSreport" class="table table-bordered table-hover table-custom">
                                         <thead>
                                             <tr>
-                                                <th width="20%">Group Name</th>
+                                                <th width="10%">Group Name</th>
+                                                <th width="10%">Adviser</th>
                                                 <?php 
-                                                    $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course ORDER BY start ASC";
+                                                    $sqlEvents = "select * from events where sem = $sem AND event_type = 2 AND course = $course AND Description = 'Status Report' ORDER BY start ASC";
                                                     $res = mysqli_query($con, $sqlEvents);
                                                     while($row = mysqli_fetch_assoc($res)){
-                                                        echo '<th width="15%">'.$row['Description'].'</th>';
+                                                        echo '<th width="5%">'.$row['title'].'</th>';
                                                     }
                                                 ?>
                                             </tr>
@@ -94,8 +95,9 @@
                                                     {
                                                         echo '<br>'. $grow['lastname'];
                                                     }
-                                               echo    '</td>';                                                    
-                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 ORDER BY start ASC";
+                                               echo    '</td>';   
+                                               echo    '<td> <b>'.$Aname.'</b></td>';
+                                                  $events ="SELECT * FROM events WHERE sem = $sem AND course = $course AND event_type = 2 AND Description = 'Status Report' ORDER BY start ASC";
         //                                            echo $query;
                                                     $eresult = mysqli_query($con, $events);
                                                     while($erow = mysqli_fetch_array($eresult))  

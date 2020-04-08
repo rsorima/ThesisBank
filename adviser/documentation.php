@@ -54,15 +54,81 @@
                                     <h4>Student Documentation</h4>
                                 </div> 
                                 <div class="box-body">
-                                    <table id="tblDocumentation" class="table table-bordered table-hover table-custom">
+                                    <table id="tblDreport" class="table table-bordered table-hover table-custom">
                                         <thead>
                                             <tr>
                                                 <th width="15%">Group Name</th>
                                                 <th width="15%">Report File Link</th>                                              
+                                                <th width="15%">Thesis Title</th>
                                                 <th width="12%">Date</th>
                                                 <th width="12%">Action</th>
                                             </tr>
                                         </thead>
+                                        <?php 
+                                            $doc_sql = "SELECT * FROM report WHERE report_type = 3 AND (status < 5 || status = 7)";
+                                            $doc_res = mysqli_query($con, $doc_sql);
+                                            $num_row = mysqli_num_rows($doc_res);
+                                            if($num_row > 0){
+                                                while($v = mysqli_fetch_assoc($doc_res)) {
+                                        ?>
+                                            <tr>
+                                                <?php 
+                                                    $group_sql = "SELECT * FROM groups WHERE id = ".$v['group_id']."";
+                                                    $group_res = mysqli_query($con, $group_sql);
+                                                    $groups = mysqli_fetch_assoc($group_res);
+                                                ?>
+                                                <td scope="row">
+                                                    <?php print $groups['name']; ?>
+                                                <br>
+                                                    <?php 
+                                                        $count = 0;    
+                                                    
+                                                        $group_mem_sql = "SELECT gm.id, gm.user_id, u.id, u.lastname  FROM group_members gm LEFT JOIN users u on gm.user_id = u.id WHERE group_id = ".$groups['id']."";
+                                                        $group_mem_res = mysqli_query($con, $group_mem_sql);
+                                                        $rows = mysqli_num_rows($group_mem_res);
+                                                        while($group_mems = mysqli_fetch_assoc($group_mem_res)){
+                                                            echo $group_mems['lastname'];
+                                                            $count++;
+                                                            if($count != $rows) { echo ", ";}
+                                                        }
+                                                    ?>
+                                                </td>
+                                                <td><a href="../student/<?php echo $v['report_filename'];?>" title="Click to Download" download><?php echo str_replace("testupload/","", $v['report_filename']); ?></a></td>
+                                                <td><?php print $v['report_title']; ?></td>
+                                                <td><?php print $v['date_created']; ?></td>
+                                                <td><center><?php 
+                                                        if($v['status'] == 1) {
+                                                            echo '<span class="badge badge-dark" style="padding:10px; font-size:11px!important;">Submitted by Student</span>';
+                                                            echo '<br>';
+                                                            echo '<a width="10%" class="btn btn-success" href="php/update_status.php?id='.$v["id"].'&pageid=3&action=a">APPROVE</a>  <a class="btn btn-danger" href="php/update_status.php?id='.$v["id"].'&pageid=3&action=r">REJECT</a>';
+                                                        }else if($v['status'] == 2) {
+                                                            echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #dc3545">Declined by you</span>';
+                                                        }else if($v['status'] == 3) {
+                                                            echo '<span class="badge badge-primary" style="padding:10px; font-size:11px!important;background-color:#3857b1;">Submitted to Coordinator</span>';
+                                                        }else if($v['status'] == 4) {
+                                                            echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745">Approved</span>';
+                                                        }else if($v['status'] == 5) {
+                                                            echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745">Approved</span>';
+                                                        }else if($v['status'] == 6) {
+                                                            echo '<span class="badge badge-success" style="padding:10px; font-size:11px!important;color:#fff;background-color: #28a745">Approved</span>';
+                                                        }else if($v['status'] == 7) {
+                                                            echo '<span class="badge badge-info" style="padding:10px; font-size:11px!important;color:#fff;background-color: #dcb035">Declined by Coordinator</span><br>';
+                                                            echo '<a width="10%" class="btn btn-success" href="php/update_status.php?id='.$v["id"].'&pageid=3&action=a">APPROVE</a>  <a class="btn btn-danger" href="php/update_status.php?id='.$v["id"].'&pageid=3&action=r">REJECT</a>';
+                                                        }else {
+                                                            echo '<span class="badge badge-danger" style="padding:10px; font-size:11px!important;color:#212529;background-color: #ffc107">No Entry</span>';
+                                                        }
+                                                    ?>
+                                                </center></td>
+                                            </tr>
+
+                                        <?php
+                                                }
+                                            }else {
+                                        ?>
+                                                <p class="alert alert-info">Thesis directory is empty.</p>
+                                        <?php
+                                            }
+                                        ?>
                                     </table>
                                 </div>
                                 <div class="box-footer">
@@ -102,7 +168,12 @@
         <script src="../js/sweetalert/sweetalert.min.js"></script>
 
         <!-- <script src="js/branch.js"></script> -->
-        <script src="js/datatable.js"></script>
+        <script>
+            $(document).ready(function(){  
+                $('#tblDreport').DataTable();   
+            });
+        </script>
+<!--        <script src="js/datatable.js"></script>-->
         
         <!-- AdminLTE App -->
         <script src="../template/dist/js/adminlte.min.js"></script>    
