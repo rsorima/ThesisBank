@@ -60,17 +60,17 @@ $(document).ready(function(){
 		}
 	});
 
-	$.ajax({
-		url: "fetch/calendar-event.php",
-		type: "GET",
-		dataType: "json",
-		success: function(data){
-			console.log(data.result)
-        },
-        error: function(err){
-            console.log(err.responseText)
-        }
-	});
+//	$.ajax({
+//		url: "fetch/calendar-event.php",
+//		type: "GET",
+//		dataType: "json",
+//		success: function(data){
+//			console.log(data.result)
+//        },
+//        error: function(err){
+//            console.log(err.responseText)
+//        }
+//	});
 
 
 	var calendar = $('#calendar').fullCalendar({
@@ -78,6 +78,7 @@ $(document).ready(function(){
         events: "fetch/calendar-event.php",
         displayEventTime: false,
         eventRender: function (event, element, view) {
+        
         },
         selectable: true,
         selectHelper: true,

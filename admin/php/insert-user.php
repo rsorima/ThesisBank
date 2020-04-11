@@ -11,6 +11,7 @@
         $Scourse = $_POST["course"];
         $uname = $_POST["uname"];
         $pword = $_POST["pword"];
+        $pword = md5($pword);
 					
 
         // INSERT DATA QUERY

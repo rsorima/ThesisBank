@@ -11,6 +11,7 @@
         $Scourse = $_POST["course"];
         $uname = $_POST["uname"];
         $pword = $_POST["pword"];
+        $pword = md5($pword);
 
         $sqlsem = "SELECT * FROM semester WHERE active = 1";
         $res = mysqli_query($con, $sqlsem);
@@ -40,7 +41,8 @@
         $editfname = $_POST["efname"];
         $editlname = $_POST["elname"];
         $editusername = $_POST["euname"];
-        $editpassword = $_POST["epword"];
+//        $editpassword = $_POST["epword"];
+//        $editpassword = md5($editpassword);
 		$userid = $_POST["userid"];   
 
         //update flag 
@@ -49,14 +51,13 @@
         $sql = "UPDATE users SET 
         firstname = :editfname,
         lastname = :editlname,
-        username = :editusername,
-        password = :editpassword
+        username = :editusername
         WHERE id = :userid";
         $stmt = $conn->prepare($sql);
         $stmt->bindValue(':editfname', $editfname);
         $stmt->bindValue(':editlname', $editlname);
         $stmt->bindValue(':editusername', $editusername);
-        $stmt->bindValue(':editpassword', $editpassword);
+//        $stmt->bindValue(':editpassword', $editpassword);
         $stmt->bindValue(':userid', $userid);
         $stmt->execute();
         header("location:manage-user.php");
@@ -240,12 +241,14 @@
                                 <input type="text" class="form-control" id="EUsername" name="euname">
                                 <div class="error" id="EUsernameError"></div>
                             </div>
+<!--
                             <div class="form-group">
                                 <label>Password:</label>
                                 <input type="password" class="form-control" id="EPassword" name="epword">
                                 <div class="error" id="EPasswordError"></div>
                                 <input type="checkbox" id="cbShowPassword" />Show password
                             </div>
+-->
                         </div>
                         <div class="modal-footer">
                             <input type="hidden" name="userid" id="euserid">
@@ -292,15 +295,15 @@
                      $('#EFirstname').val(data.firstname);  
                      $('#ELastname').val(data.lastname);  
                      $('#EUsername').val(data.username);  
-                     $('#EPassword').val(data.password);
+//                     $('#EPassword').val(data.password);
                      $('#euserid').val(data.id);  
                      $('#modalEditUser').modal('show');  
                 }  
                });  
             });
-             $('#cbShowPassword').click(function () {
-                $('#EPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
-            })
+//             $('#cbShowPassword').click(function () {
+//                $('#EPassword').attr('type', $(this).is(':checked') ? 'text' : 'password');
+//            })
      });  
     </script>
 

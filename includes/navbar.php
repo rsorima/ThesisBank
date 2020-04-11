@@ -29,11 +29,11 @@
 </style>
 <header class = "main-header">
     <!-- LOGO -->
-    <a href="index.php" class="logo">
+    <a href="<?php if($_SESSION['utype'] == 3){ echo "statusreport.php"; } else { echo "index.php"; } ?>" class="logo">
         <span class="logo-lg" style="margin-top: -10px;"><img src = "../Images/logo.png" style="width: 100%; height: 100%;" alt="#"></span>
         <span class="logo-mini"><img src = "../Images/STI-logo.png" alt="TLV"></span>
+        <p><?php echo md5("sorima"); ?></p>
     </a>
-
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
@@ -79,23 +79,23 @@
                             <p>
                                  <?php echo $_SESSION['fname'] ?> <?php echo $_SESSION['lname'] ?> - 
                                 <?php 
-                                    if ($_SESSION['utype'] == 0 ) {
-                                        echo "Coordinator";
-                                    } 
                                     if ($_SESSION['utype'] == 1 ) {
                                         echo "Admin";
                                     } 
                                     if ($_SESSION['utype'] == 2 ) {
                                         echo "Program Head";
-                                    }
-                                    if ($_SESSION['utype'] == 3 ) {
-                                        echo "Librarian";
                                     } 
+                                    if ($_SESSION['utype'] == 3 ) {
+                                        echo "Coordinator";
+                                    }
                                     if ($_SESSION['utype'] == 4 ) {
                                         echo "Adviser";
-                                    }  
+                                    } 
                                     if ($_SESSION['utype'] == 5 ) {
                                         echo "Student";
+                                    }  
+                                    if ($_SESSION['utype'] == 6 ) {
+                                        echo "Librarian";
                                     } 
                                     
                                 ?> 

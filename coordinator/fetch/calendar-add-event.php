@@ -9,7 +9,7 @@
     $sem = $_SESSION['sem'];
     $uid = $_SESSION['uid'];
 
-    $sqlInsert = "INSERT INTO events (Title,Start,End, Description,sem, course, event_type, user_id) VALUES ('".$title."','".$start."','".$end ."','".$desc."', $sem, $course, 1, $uid)";
+    $sqlInsert = "INSERT INTO events (Title,Start,End, Description,sem, course, event_type, user_id, backgroundColor) VALUES ('".$title."','".$start."','".$end ."','".$desc."', $sem, $course, 1, $uid, '#c553f5 !important')";
     $result = mysqli_query($con, $sqlInsert);
 
     $group_sql = "SELECT * FROM groups WHERE program = $course";

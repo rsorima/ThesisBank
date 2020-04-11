@@ -34,12 +34,6 @@
         <!-- Google Font -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
-    <style>
-    
-        .fc-content, .fc-event {
-            background-color: #831483;
-        }
-    </style>
     </head>
     <body class="hold-transition skin-green sidebar-mini fixed">
 
@@ -55,10 +49,10 @@
                 <section class="content-header">
                     <h1> Calendar </h1>
                     <ol class="breadcrumb" style="border: solid 1px;">
-                        <li><a href="#"><i class="fa fa-circle-thin" style="background-color: darkviolet;
-                         border-radius: 30px;"></i>Thesis Coordinator</a></li>
-                        <!-- <li><a href="#"><i class="fa fa-circle-thin" style="background-color: blue;
-                         border-radius: 30px;"></i> Adviser</a></li> -->
+                        <li><i class="fa fa-circle-thin" style="background-color: #c553f5;
+                         border-radius: 30px;"></i>Thesis Coordinator</li>
+                         <li><i class="fa fa-circle-thin" style="background-color: #3a87ad;
+                         border-radius: 30px;"></i> Adviser</li> 
                     </ol>
                 </section>
 
@@ -195,7 +189,7 @@
         <script src="../js/sweetalert/sweetalert.min.js"></script>
 
         <!-- <script src="js/branch.js"></script> -->
-        <script src="js/datatable.js"></script>
+<!--        <script src="js/datatable.js"></script>-->
         
         <!-- AdminLTE App -->
         <script src="../template/dist/js/adminlte.min.js"></script> 

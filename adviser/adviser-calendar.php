@@ -36,9 +36,11 @@
 
         <style>
     
+/*
             .fc-content, .fc-event {
                 background-color: #0000ff ;
             }
+*/
         </style>
     </head>
     <body class="hold-transition skin-green sidebar-mini fixed">

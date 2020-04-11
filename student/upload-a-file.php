@@ -136,30 +136,40 @@
                 $prompt_message = '<p class="alert alert-error">Problem uploading file</p>';
             }
         }else {
-            $report_info = mysqli_fetch_assoc($report_res);
-            move_uploaded_file($_FILES['thesis_file']['tmp_name'], $targetfolder);
-            $report_id = $report_info['id'];
-            $report_file = $report_info['report_filename'];
-            $prompt_message = '<p class="alert alert-success">Report Succesfully Updated</p>';
-//            echo $report_id;
-            unlink($report_file);
-            if($thesis_title == "") {
-                $update_sql = "UPDATE report SET report_filename = '$targetfolder', date_created = now(), status = 1 WHERE id = $report_id";
-            }else {
-                 $update_sql = "UPDATE report SET report_filename = '$targetfolder', date_created = now(), status = 1, report_title = '$thesis_title' WHERE id = $report_id";
+            while ($report_info = mysqli_fetch_assoc($report_res)) {
+                if($report_info['status'] == 1 || $report_info['status'] == 2 || $report_info['status'] == 7) {
+                    $report_info = mysqli_fetch_assoc($report_res);
+                    move_uploaded_file($_FILES['thesis_file']['tmp_name'], $targetfolder);
+                    $report_id = $report_info['id'];
+                    $report_file = $report_info['report_filename'];
+                    $prompt_message = '<p class="alert alert-success">Report Succesfully Updated</p>';
+        //            echo $report_id;
+                    unlink($report_file);
+                    if($thesis_title == "") {
+                        $update_sql = "UPDATE report SET report_filename = '$targetfolder', date_created = now(), status = 1 WHERE id = $report_id";
+                    }else {
+                         $update_sql = "UPDATE report SET report_filename = '$targetfolder', date_created = now(), status = 1, report_title = '$thesis_title' WHERE id = $report_id";
+                    }
+
+                    mysqli_query($con, $update_sql);
+
+                    $alertType = "report";
+                    $message = $group_name." RESUBMITTED a ".$report_type." on ".$event_title.". Check them now!";
+                    $save_details = "INSERT into alert_details (alertType, message, link) values ('$alertType','$message','$link')";
+                    $alert_detail_result = mysqli_query($con, $save_details);
+
+                    $alertDetailId = mysqli_insert_id($con);
+
+                    $send_alert = "INSERT into alerts (alertDetailsId, userId) values ('$alertDetailId', '$adviser_id')";
+                    $send_result = mysqli_query($con, $send_alert);
+                }else if($report_info['status'] == 3) {
+                    $prompt_message = '<p class="alert alert-success">Cannot Sumbit Already Approved by Adviser. Waiting for Response</p>';
+                }else if($report_info['status'] == 4) {
+                    $prompt_message = '<p class="alert alert-success">Cannot Sumbit Already Approved by Coordinator. Waiting for Response</p>';
+                }else if($report_info['status'] == 3) {
+                    $prompt_message = '<p class="alert alert-success">Cannot Sumbit Already Approved by Program Head.</p>';
+                } 
             }
-            
-            mysqli_query($con, $update_sql);
-            
-            $alertType = "report";
-            $message = $group_name." RESUBMITTED a ".$report_type." on ".$event_title.". Check them now!";
-            $save_details = "INSERT into alert_details (alertType, message, link) values ('$alertType','$message','$link')";
-            $alert_detail_result = mysqli_query($con, $save_details);
-
-            $alertDetailId = mysqli_insert_id($con);
-
-            $send_alert = "INSERT into alerts (alertDetailsId, userId) values ('$alertDetailId', '$adviser_id')";
-            $send_result = mysqli_query($con, $send_alert);
         }
 }
 

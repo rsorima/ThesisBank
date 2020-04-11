@@ -10,7 +10,7 @@
     $sem = $_SESSION['sem'];
     $uid = $_SESSION['uid'];
 
-    $sqlInsert = "INSERT INTO events (Title,Start,End, Description,sem, course, event_type, user_id) VALUES ('".$title."','".$start."','".$end ."','".$desc."', $sem, $course, 2, $uid)";
+    $sqlInsert = "INSERT INTO events (Title,Start,End, Description,sem, course, event_type, user_id, backgroundColor) VALUES ('".$title."','".$start."','".$end ."','".$desc."', $sem, $course, 2, $uid, '#3a87ad !important')";
     //echo $sqlInsert;
     $result = mysqli_query($con, $sqlInsert);
     

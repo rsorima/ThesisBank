@@ -67,9 +67,10 @@
                 <li class="header"> USERS </li>
                 <li class="<?php if($fileName =='manage-user'){echo 'active';} ?>"> <a href="manage-user.php"> <i class="fa fa-group"></i> <span>Manage Users</span> </a></li>
                 <!-- <li class="header"> COURSES </li>
-                <li class="<?php if($fileName =='manage-courses'){echo 'active';} ?>"><a href="manage-courses.php"><i class="fa fa-pencil"></i> <span>Courses</span> </a></li> -->
-                    
-
+                <li class="<?php //if($fileName =='manage-courses'){echo 'active';} ?>"><a href="manage-courses.php"><i class="fa fa-pencil"></i> <span>Courses</span> </a></li> -->
+                <li class="header"> SEMESTER </li>
+                <li class="<?php if($fileName =='manage-semester'){echo 'active';} ?>"> <a href="manage-semester.php"> <i class="fa fa-group"></i> <span>Manage Semester</span> </a></li>
+                
             <?php } ?>
 
             <!-- PROGRAM HEAD -->
@@ -115,7 +116,7 @@
             <?php if ($_SESSION['utype'] == 5) {?>
                 <li class="header"> HOME </li>
                 <li class="<?php if($fileName =='index'){echo 'active';} ?>"> <a href="index.php"> <i class="fa fa-dashboard"></i> <span>Dashboard</span> </a></li>
-                <li class="<?php if($fileName =='upload-a-file'){echo 'active';} ?>"> <a href="upload-a-file.php"> <i class="fa fa-dashboard"></i> <span>Send Reports</span> </a></li>
+                <li class="<?php if($fileName =='upload-a-file'){echo 'active';} ?>"> <a href="upload-a-file.php"> <i class="fa fa-dashboard"></i> <span>Reports</span> </a></li>
                 <li class="<?php if($fileName =='student-calendar'){echo 'active';} ?>"> <a href="student-calendar.php"> <i class="fa fa-calendar"></i> <span>Calendar</span> </a></li>
 
                 

@@ -48,6 +48,21 @@
             $send_result = mysqli_query($con, $send_alert);
         }
         
+        $group_mem_sql2 = "SELECT * FROM group_members WHERE group_id = ".$res['group_id']."";
+        echo $group_mem_sql2;
+        $group_mems2 = mysqli_query($con, $group_mem_sql2);
+        while($mem_row2 = mysqli_fetch_assoc($group_mems2)) {
+            $alertType = "report";
+            $message = "The Coordinator ".$type." your submission on ".$res['title']." - ".$res['Description']." of ".$mem_row2['name'].". Check them now!";
+            $link = "upload-a-file.php";
+            $save_details = "INSERT into alert_details (alertType, message, link) values ('$alertType','$message','$link')";
+            $alert_detail_result = mysqli_query($con, $save_details);
+            $alertDetailId = mysqli_insert_id($con);
+
+            $send_alert = "INSERT into alerts (alertDetailsId, userId) values ('$alertDetailId', ".$mem_row2['user_id'].")";
+            $send_result = mysqli_query($con, $send_alert);
+        }
+        
         if($page_type == 1) {
             header("location:../statusreport.php");
         }else if($page_type == 2) {

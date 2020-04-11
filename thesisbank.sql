@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 08, 2020 at 11:04 PM
+-- Generation Time: Apr 11, 2020 at 06:32 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.2
 
@@ -73,7 +73,7 @@ INSERT INTO `alerts` (`alertId`, `alertDetailsId`, `userId`, `isRead`) VALUES
 (44, 47, 13, 1),
 (45, 48, 5, 1),
 (46, 49, 4, 1),
-(47, 50, 13, 0),
+(47, 50, 13, 1),
 (48, 51, 5, 1),
 (49, 52, 4, 1),
 (50, 53, 18, 1),
@@ -81,7 +81,11 @@ INSERT INTO `alerts` (`alertId`, `alertDetailsId`, `userId`, `isRead`) VALUES
 (52, 57, 12, 1),
 (53, 58, 12, 1),
 (54, 59, 12, 1),
-(55, 60, 12, 1);
+(55, 60, 12, 1),
+(56, 61, 13, 1),
+(57, 62, 4, 0),
+(58, 63, 13, 1),
+(59, 64, 18, 0);
 
 -- --------------------------------------------------------
 
@@ -149,7 +153,11 @@ INSERT INTO `alert_details` (`alertDetailsId`, `alertDate`, `alertType`, `messag
 (57, '2020-04-09 04:35:33', 'report', 'programhead programhead archived Thesis Title - Documentation . Check them now!', 0, 0, 'documentation.php'),
 (58, '2020-04-09 04:36:19', 'report', 'programhead programhead archived Thesis Title - Documentation . Check them now!', 0, 0, 'documentation.php'),
 (59, '2020-04-09 04:43:01', 'report', 'programhead programhead archived Thesis Title - Documentation . Check them now!', 0, 0, 'index.php'),
-(60, '2020-04-09 04:58:54', 'report', 'admin admin archived SMART DOOR - An IOT based project - Documentation. Check them now!', 0, 0, 'index.php');
+(60, '2020-04-09 04:58:54', 'report', 'admin admin archived SMART DOOR - An IOT based project - Documentation. Check them now!', 0, 0, 'index.php'),
+(61, '2020-04-10 12:43:16', 'report', 'Your Adviser created a Status Report DEADLINE ON 2020-04-23 13:00. Check them now!', 0, 0, 'upload-a-file.php'),
+(62, '2020-04-10 17:36:25', 'report', 'The Coordinator APPROVED your submission on Thesis Documentation - Documentation of group 1. Check them now!', 0, 0, 'documentation.php'),
+(63, '2020-04-10 17:36:26', 'report', 'The Coordinator APPROVED your submission on Thesis Documentation - Documentation of . Check them now!', 0, 0, 'upload-a-file.php'),
+(64, '2020-04-10 17:36:26', 'report', 'coordinator coordinator Submitted Thesis Documentation - Documentation . Check them now!', 0, 0, 'documentation.php');
 
 -- --------------------------------------------------------
 
@@ -188,24 +196,26 @@ CREATE TABLE `events` (
   `Description` varchar(255) NOT NULL,
   `start` datetime NOT NULL,
   `end` datetime NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `backgroundColor` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `sem`, `event_type`, `course`, `Description`, `start`, `end`, `user_id`) VALUES
-(1, 'Final Defense', 0, 0, 0, 'Final Defense for IT Special Project (THESIS)', '2019-11-04 09:00:00', '2019-11-05 19:00:00', 1),
-(10, 'Deliverables Deadline', 0, 0, 0, 'Deadline for Deliverables', '2019-10-29 06:00:00', '2019-10-29 18:00:00', 1),
-(13, 'redefense', 0, 0, 0, 'it project', '2019-11-22 13:00:00', '2019-11-22 17:00:00', 0),
-(14, 'deliverables', 0, 0, 0, 'passing of status report', '2019-11-22 08:00:00', '2019-11-22 00:59:00', 0),
-(15, 'Week 4', 1, 2, 2, 'Status Report', '2020-03-12 18:40:00', '2020-03-18 18:40:00', 4),
-(18, 'Week 2', 1, 2, 2, 'Status Report', '2020-03-11 13:00:00', '2020-03-14 13:00:00', 4),
-(20, 'Week 3', 1, 2, 2, 'Journal Report', '2020-03-23 13:00:00', '2020-03-25 13:00:00', 4),
-(24, 'Week 5', 1, 2, 2, 'Journal Report', '2020-04-06 17:00:00', '2020-04-06 20:00:00', 4),
-(28, 'Thesis Documentation', 1, 1, 2, 'Documentation', '2020-04-08 13:00:00', '2020-04-15 13:00:00', 5),
-(29, 'Week 6', 1, 2, 2, 'Status Report', '2020-04-09 13:00:00', '2020-04-09 18:00:00', 4);
+INSERT INTO `events` (`id`, `title`, `sem`, `event_type`, `course`, `Description`, `start`, `end`, `user_id`, `backgroundColor`) VALUES
+(1, 'Final Defense', 0, 0, 0, 'Final Defense for IT Special Project (THESIS)', '2019-11-04 09:00:00', '2019-11-05 19:00:00', 1, ''),
+(10, 'Deliverables Deadline', 0, 0, 0, 'Deadline for Deliverables', '2019-10-29 06:00:00', '2019-10-29 18:00:00', 1, ''),
+(13, 'redefense', 0, 0, 0, 'it project', '2019-11-22 13:00:00', '2019-11-22 17:00:00', 0, ''),
+(14, 'deliverables', 0, 0, 0, 'passing of status report', '2019-11-22 08:00:00', '2019-11-22 00:59:00', 0, ''),
+(15, 'Week 4', 1, 2, 2, 'Status Report', '2020-03-12 18:40:00', '2020-03-18 18:40:00', 4, ''),
+(18, 'Week 2', 1, 2, 2, 'Status Report', '2020-03-11 13:00:00', '2020-03-14 13:00:00', 4, ''),
+(20, 'Week 3', 1, 2, 2, 'Journal Report', '2020-03-23 13:00:00', '2020-03-25 13:00:00', 4, ''),
+(24, 'Week 5', 1, 2, 2, 'Journal Report', '2020-04-06 17:00:00', '2020-04-06 20:00:00', 4, '#3a87ad !important'),
+(28, 'Thesis Documentation', 1, 1, 2, 'Documentation', '2020-04-08 13:00:00', '2020-04-15 13:00:00', 5, '#c553f5 !important'),
+(29, 'Week 6', 1, 2, 2, 'Status Report', '2020-04-09 13:00:00', '2020-04-09 18:00:00', 4, '#3a87ad !important'),
+(30, 'Week 10', 1, 2, 2, 'Status Report', '2020-04-20 13:00:00', '2020-04-23 13:00:00', 4, '#3a87ad !important');
 
 -- --------------------------------------------------------
 
@@ -316,7 +326,7 @@ INSERT INTO `report` (`id`, `group_id`, `event_id`, `sem_id`, `report_type`, `re
 (23, 20, 18, 1, 1, 'testupload/10.11648.j.ajrs.20170505.11.pdf', '', 1, '2020-04-08 20:04:13'),
 (24, 20, 29, 1, 1, 'testupload/char.docx', '', 1, '2020-04-09 02:04:24'),
 (25, 20, 24, 1, 2, 'testupload/char2.docx', '', 1, '2020-04-09 02:29:56'),
-(27, 20, 28, 1, 3, 'testupload/baboy (Resume).docx', 'Thesis Title', 6, '2020-04-09 03:15:58');
+(27, 20, 28, 1, 3, 'testupload/baboy (Resume).docx', 'Thesis Title', 4, '2020-04-09 03:15:58');
 
 -- --------------------------------------------------------
 
@@ -382,7 +392,8 @@ CREATE TABLE `semester` (
 --
 
 INSERT INTO `semester` (`id`, `type`, `start_sy`, `end_sy`, `description`, `Active`) VALUES
-(1, 1, 2019, 2020, '1st Semester SY: 2019-2020', 1);
+(1, 1, 2019, 2020, '1st Semester SY: 2019-2020', 0),
+(3, 1, 2020, 2021, '1st Semester SY: 2020-2021', 1);
 
 -- --------------------------------------------------------
 
@@ -454,16 +465,17 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role`, `program`, `sem`, `firstname`, `lastname`, `username`, `password`, `status`, `date_created`) VALUES
-(1, 1, 1, 0, 'admin', 'admin', 'admin', 'admin', 0, '2020-03-08 11:47:02'),
+(1, 1, 1, 0, 'admin', 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 0, '2020-03-08 11:47:02'),
 (2, 4, 1, 0, 'no adviser', 'no adviser', 'no adviser', 'no adviser', 0, '2020-03-11 10:01:02'),
-(4, 4, 2, 1, 'adviser', 'adviser', 'adviser', 'adviser', 0, '2020-03-10 21:09:56'),
-(5, 3, 2, 1, 'coordinator', 'coordinator', 'coordinator', 'coordinator', 0, '2020-03-10 21:28:37'),
-(12, 6, 1, 1, 'librarian', 'librarian', 'librarian', 'librarian', 0, '2020-03-10 23:45:38'),
-(13, 5, 2, 1, 'kent', 'mozo', 'kent', 'mozo', 0, '2020-03-10 20:15:50'),
-(17, 4, 2, 1, 'adviser2', 'adviser2', 'adviser2', 'adviser2', 0, '2020-03-11 10:50:49'),
-(18, 2, 2, 1, 'programhead', 'programhead', 'programhead', 'programhead', 0, '2020-03-11 16:07:03'),
-(19, 5, 2, 1, 'reno', 'sorima', 'reno', 'sorima', 0, '2020-03-12 10:19:58'),
-(20, 3, 6, 1, 'HRM coordinator', 'HRM coordinator', 'HRM coordinator', 'coordinator', 0, '2020-03-19 00:19:22');
+(4, 4, 2, 1, 'adviser', 'adviser', 'adviser', 'c0f7bbe14aaee1b771e9ea23dd7883ea', 0, '2020-03-10 21:09:56'),
+(5, 3, 2, 1, 'coordinator', 'coordinator', 'coordinator', 'c4312c2a07bf7ded608a4d7cee2228dd', 0, '2020-03-10 21:28:37'),
+(12, 6, 1, 1, 'librarian', 'librarian', 'librarian', '35fa1bcb6fbfa7aa343aa7f253507176', 0, '2020-03-10 23:45:38'),
+(13, 5, 2, 1, 'kent', 'mozo', 'kent', '126f8d4532191178216b1be0d199af87', 1, '2020-03-10 20:15:50'),
+(17, 4, 2, 1, 'adviser2', 'adviser2', 'adviser2', 'e5efba088917d5f6272b35cc9662180e', 0, '2020-03-11 10:50:49'),
+(18, 2, 2, 1, 'programhead', 'programhead', 'programhead', '2bdf3ad4607188a6aeee9d9edd762a86', 0, '2020-03-11 16:07:03'),
+(19, 5, 2, 1, 'reno', 'sorima', 'reno', 'c7c7940ed69582bda41aca5df3d8f761', 0, '2020-03-12 10:19:58'),
+(20, 3, 6, 1, 'HRM coordinator', 'HRM coordinator', 'HRM coordinator', 'c4312c2a07bf7ded608a4d7cee2228dd', 0, '2020-03-19 00:19:22'),
+(21, 5, 3, 3, 'adrian', 'mozo', 'adrian', '126f8d4532191178216b1be0d199af87', 0, '2020-04-12 00:06:05');
 
 -- --------------------------------------------------------
 
@@ -609,13 +621,13 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT for table `alerts`
 --
 ALTER TABLE `alerts`
-  MODIFY `alertId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `alertId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `alert_details`
 --
 ALTER TABLE `alert_details`
-  MODIFY `alertDetailsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `alertDetailsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `calendar_events`
@@ -627,7 +639,7 @@ ALTER TABLE `calendar_events`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `groups`
@@ -675,7 +687,7 @@ ALTER TABLE `report_type`
 -- AUTO_INCREMENT for table `semester`
 --
 ALTER TABLE `semester`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `sem_type`
@@ -693,7 +705,7 @@ ALTER TABLE `thesis_table`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `user_roles`

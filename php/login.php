@@ -7,6 +7,7 @@
         //GET DATA FROM AJAX
 		$uname = $_POST['uname'];
 		$pword = $_POST['pword'];
+        $pword = md5($pword);
 
         //SELECT DATA QUERY
 		$conn = new PDO($dsn, $user, $pass);
