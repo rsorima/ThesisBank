@@ -57,7 +57,7 @@
     $coor_id = $coor['id'];
     
     if(!empty($_FILES)){
-        $targetfolder = "testupload/";
+        $targetfolder = "../student/testupload/";
         $course = !empty($_POST['course']) ? $_POST['course'] : '';
         $targetfolder = $targetfolder . basename( $_FILES['thesis_file']['name']) ;
         $thesis_name = !empty($_POST['thesis_name']) ? $_POST['thesis_name'] : '';

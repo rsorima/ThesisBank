@@ -67,7 +67,7 @@
                         <div class = "col-md-12">
                             <div class="box box-info border-blue">
                                 <div class="row el-element-overlay">                
-                                <embed id="pdf_iframe" style="width:100%;height:100vh;" src="../admin/<?php print $result[0]['thesis_pdf_file']; ?>#toolbar=0" type="application/pdf">
+                                <embed id="pdf_iframe" style="width:100%;height:100vh;" src="../student/<?php print $result[0]['thesis_pdf_file']; ?>#toolbar=0" type="application/pdf">
                                 </div>
                             </div>
                         </div>
